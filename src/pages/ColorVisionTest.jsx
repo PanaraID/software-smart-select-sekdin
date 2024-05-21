@@ -90,6 +90,7 @@ function ColorVisionTest() {
                         </table>
                     </div>
                 )}
+                <hr />
                 <button onClick={() => navigatge('/') } className="btn btn-primary">Home</button>
             </div>
 
