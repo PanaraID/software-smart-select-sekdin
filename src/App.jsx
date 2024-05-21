@@ -1,37 +1,19 @@
-import { useState } from 'react';
-import Home from './pages/HomePage';
-import About from './pages/AboutPage';
-import Contact from './pages/ContactPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from './pages/HomePage'
+import Contact from './pages/ContactPage'
+import ColorVisionTest from './pages/ColorVisionTest';
 
 const App = () => {
-  const [page, setPage] = useState('home');
-
-  const navigateTo = (pageName) => {
-    setPage(pageName);
-  };
-
-  let currentPage;
-  switch (page) {
-    case 'home':
-      currentPage = <Home />;
-      break;
-    case 'about':
-      currentPage = <About />;
-      break;
-    case 'contact':
-      currentPage = <Contact />;
-      break;
-    default:
-      currentPage = <Home />;
-  }
-
+  // return <Home />
   return (
-    <>
-      <button onClick={() => navigateTo('home')}>Home</button>
-      <button onClick={() => navigateTo('about')}>About</button>
-      <button onClick={() => navigateTo('contact')}>Contact</button>
-      {currentPage}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/color-vision-test" element={<ColorVisionTest />} />
+      </Routes>
+    </Router>
   );
 };
 
