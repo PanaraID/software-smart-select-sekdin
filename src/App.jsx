@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import Home from './pages/HomePage';
+import About from './pages/AboutPage';
+import Contact from './pages/ContactPage';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [page, setPage] = useState('home');
+
+  const navigateTo = (pageName) => {
+    setPage(pageName);
+  };
+
+  let currentPage;
+  switch (page) {
+    case 'home':
+      currentPage = <Home />;
+      break;
+    case 'about':
+      currentPage = <About />;
+      break;
+    case 'contact':
+      currentPage = <Contact />;
+      break;
+    default:
+      currentPage = <Home />;
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <button onClick={() => navigateTo('home')}>Home</button>
+      <button onClick={() => navigateTo('about')}>About</button>
+      <button onClick={() => navigateTo('contact')}>Contact</button>
+      {currentPage}
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
