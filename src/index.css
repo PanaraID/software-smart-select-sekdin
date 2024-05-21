@@ -1,0 +1,14 @@
+.card {
+    padding: 10px;
+}
+
+/* Mengatur ukuran gambar sesuai dengan lebar layar */
+img {
+    width: 60vw; /* Lebar gambar adalah 100% lebar layar */
+    height: auto; /* Menjaga aspek ratio gambar */
+}
+
+img.result {
+    width: 20vw; /* Lebar gambar adalah 100% lebar layar */
+    height: auto; /* Menjaga aspek ratio gambar */
+}

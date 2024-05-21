@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Footer from '../partials/Footer';
 import { useNavigate } from 'react-router-dom';
 
 function ColorVisionTest() {
-    const [questions, setQuestions] = useState([
+    const [questions] = useState([
         { image: "1", answer: "X" },
         { image: "2", answer: "Q" },
         { image: "3", answer: "99" },
@@ -29,19 +29,24 @@ function ColorVisionTest() {
 
         if (currentQuestion < questions.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
-        } else {
-            // Show results
         }
     };
 
     return (
         <>
-            <div className="container p-5">
-                <h1 className="mb-4 text-center">Color Blindness Test</h1>
-                {currentQuestion < questions.length ? (
-                    <div className="mb-3">
+            <div className="container p-5 card">
+                <h1 className="mb-4 text-center">Test Kebutaan Warna</h1>
+                <hr />
+                <div className="card p-2 text-center mb-2">
+                    <ul>
+                        <li>Terdiri dari 5 pertanyaan berurutan yang diacak (tiap kali refresh)</li>
+                        <li>Hasil akan tampil setelah menjawab 5 pertanyaan</li>
+                    </ul>
+                </div>
+                {currentQuestion < questions.length - 1 ? (
+                    <div className="mb-3 text-center">
                         <img src={`images/image${questions[currentQuestion].image}.jpg`} className="img-fluid" alt={`Question ${questions[currentQuestion].image}`} />
-                        <label htmlFor="answer" className="form-label">Enter the alphabet or number you see:</label>
+                        <label htmlFor="answer" className="form-label">Masukkan huruf atau angka yang terlihat:</label>
                         <input
                             type="text"
                             className="form-control"
@@ -52,15 +57,15 @@ function ColorVisionTest() {
                         />
                         <button
                             type="button"
-                            className="btn btn-primary"
+                            className="btn btn-primary mt-2"
                             onClick={handleSubmit}
                         >
-                            Submit
+                            Ok
                         </button>
                     </div>
                 ) : (
                     <div id="resultTable">
-                        <h2 className="text-center">Results</h2>
+                        <h2 className="text-center">Hasil</h2>
                         <table className="table">
                             <thead>
                                 <tr>
@@ -75,9 +80,9 @@ function ColorVisionTest() {
                                 {results.map((result, index) => (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td><img src={`images/image${result.questionIndex}.jpg`} className="img-fluid" alt={`Question ${result.questionIndex}`} /></td>
+                                        <td><img src={`images/image${result.questionIndex}.jpg`} className="img-fluid result" alt={`Question ${result.questionIndex}`} /></td>
                                         <td>{result.correctAnswer}</td>
-                                        <td>{result.userAnswer}</td>
+                                        <td>{result.userAnswer ? result.userAnswer : '-'}</td>
                                         <td>{result.result}</td>
                                     </tr>
                                 ))}

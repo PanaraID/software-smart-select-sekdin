@@ -5,7 +5,7 @@ function HomePage() {
     const navigatge = useNavigate()
 
     return (
-        <div className="container">
+        <div className="container card">
             <header className="text-center">
                 <h1>Software</h1>
                 <h4>SMART SELECT</h4>
@@ -15,8 +15,10 @@ function HomePage() {
             </div>
             <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
-            <button onClick={() => navigatge('/') } className="btn btn-primary">Cek Sekolah Kedinasanmu</button>
-            <button onClick={() => navigatge('/color-vision-test') } className="btn btn-primary">Tes Buta Warna</button>
+            <div className="d-flex justify-content-evenly">
+                <button onClick={() => navigatge('/check-sekdin') } className="btn btn-primary">Cek Sekolah Kedinasanmu</button>
+                <button onClick={() => navigatge('/color-vision-test') } className="btn btn-primary">Tes Buta Warna</button>
+            </div>
 
             <Footer />
         </div>
