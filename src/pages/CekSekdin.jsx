@@ -2,12 +2,9 @@ import { useNavigate } from "react-router-dom"
 import Footer from "../partials/Footer"
 import { useState } from "react";
 
-
 function SelectForm() {
-    // State to hold the selected value
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('')
 
-    // Event handler to update the selected value
     const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
     };
@@ -18,16 +15,17 @@ function SelectForm() {
                 Pilih Sekolah
                 <select value={selectedOption} onChange={handleSelectChange}>
                     <option value="">-- Please select --</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
+                    <option value="option1">SMA IPA</option>
+                    <option value="option2">SMA IPS</option>
+                    <option value="option3">SMA JURUSAN LAINNYA</option>
+                    <option value="option4">MA IPA</option>
                 </select>
             </label>
             <p>Selected option: {selectedOption}</p>
         </form>
     );
 }
-function CheckSekdin() {
+function CekSekdin() {
 
     const navigatge = useNavigate()
 
@@ -50,4 +48,4 @@ function CheckSekdin() {
     )
 }
 
-export default CheckSekdin
+export default CekSekdin

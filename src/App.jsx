@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/HomePage'
 import ColorVisionTest from './pages/ColorVisionTest';
-import CheckSekdin from './pages/CheckSekdin';
+import CekSekdin from './pages/CekSekdin';
 
 const App = () => {
   // return <Home />
@@ -11,7 +11,7 @@ const App = () => {
       <Router>
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/check-sekdin" element={<CheckSekdin />} />
+            <Route path="/cek-sekdin" element={<CekSekdin />} />
             <Route path="/color-vision-test" element={<ColorVisionTest />} />
         </Routes>
       </Router>
