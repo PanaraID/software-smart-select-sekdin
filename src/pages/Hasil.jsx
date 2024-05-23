@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Header from "../partials/Header"
 import Footer from "../partials/Footer"
 
-function ApakahKamuButaWarna() {
+function Hasil() {
     const navigatge = useNavigate()
 
     return (
@@ -21,4 +21,4 @@ function ApakahKamuButaWarna() {
     )
 }
 
-export default ApakahKamuButaWarna
+export default Hasil

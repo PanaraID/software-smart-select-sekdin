@@ -40,7 +40,7 @@ function CekSekdin() {
 
             <div className="d-flex justify-content-evenly">
                 <button onClick={() => navigatge('/')} className="btn btn-primary">Kembali</button>
-                <button onClick={() => navigatge('/color-vision-test')} className="btn btn-primary">Tes Buta Warna</button>
+                <button onClick={() => navigatge('/apakah-kamu-buta-warna')} className="btn btn-primary">Tes Buta Warna</button>
             </div>
 
             <Footer />
