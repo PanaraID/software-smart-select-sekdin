@@ -33,7 +33,9 @@
 
         Partials.Header = function (props) {
             return (
-                <div>header</div>
+                <div className="alert alert-primary text-center" role="alert">
+                    {props.text}
+                </div>
             )
         }
 
@@ -56,7 +58,7 @@
         Pages.Home = function () {
             return (
                 <div className="container card">
-                    <Partials.Header />
+                    <Partials.Header text="Aplikasi Pintar Pemilihan Sekolah Kedinasan" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
                     <div className="d-flex justify-content-evenly">
@@ -74,6 +76,8 @@
         }
 
         Pages.TebakKarakterButaWarna = function () {
+            // TODO membuat hingga 20
+            // TODO mengatur gambar
             const [questions] = React.useState([
                 { image: "1", answer: "X" },
                 { image: "2", answer: "Q" },
