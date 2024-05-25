@@ -22,68 +22,44 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const Partials = {}
+        // Komponen App
+        function App() {
+            // State untuk menentukan halaman yang sedang aktif
+            const [activePage, setActivePage] = React.useState("home");
 
-        Partials.Header = function () {
-            return (
-                <div>
-                    <h1>Header</h1>
-                </div>
-            );
-        }
-
-        Partials.Footer = function () {
-            return (
-                <div>
-                    <h1>Footer</h1>
-                </div>
-            );
-        }
-    </script>
-
-    <script type="text/babel">
-        const Pages = {}
-
-        Pages.Home = function () {
-            const [clicked, setClicked] = React.useState(false);
-
-            const handleClick = () => {
-                setClicked(true);
+            // Daftar semua halaman dengan kontennya
+            const pages = {
+                home: () => <div><h1>Home</h1></div>,
+                about: () => <div><h1>About</h1></div>
+                // Anda bisa menambahkan halaman lain di sini
             };
 
-            if (clicked) {
-                return <Pages.About />;
-            }
+            // Fungsi untuk menampilkan halaman yang dipilih
+            const showPage = (page) => {
+                setActivePage(page);
+            };
+
+            // Mendapatkan komponen dari halaman yang aktif
+            const ActiveComponent = pages[activePage];
 
             return (
                 <div>
-                    <Partials.Header />
-                    <h1>Home</h1>
-                    <button onClick={handleClick}>Go to About</button>
+                    {/* Navigasi dinamis */}
+                    <ul>
+                        {Object.keys(pages).map((page) => (
+                            <li key={page}>
+                                <button onClick={() => showPage(page)}>{page}</button>
+                            </li>
+                        ))}
+                    </ul>
+                    {/* Konten dari halaman yang aktif */}
+                    <ActiveComponent />
                 </div>
             );
-        }
-
-        Pages.About = function () {
-            return (
-                <div>
-                    <Partials.Header />
-                    <h1>About</h1>
-                </div>
-            )
         }
     </script>
 
     <script type="text/babel">
-        function App() {
-            return (
-                <div>
-                    <Pages.Home />
-                    <Partials.Footer />
-                </div>
-            );
-        }
-
         ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 
