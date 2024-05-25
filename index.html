@@ -72,13 +72,13 @@
     <script type="text/babel">
         const Pages = {}
 
-        Pages.Home = function () {
+        Pages.Home = function (props) {
             function Button1() {
-                return <button className="btn btn-primary" type="button">Cek Kedinasan Sekolahmu</button>
+                return <button onClick={() => props.showPage("coba")} className="btn btn-primary" type="button">Cek Kedinasan Sekolahmu</button>
             }
 
             function Button2() {
-                return <button className="btn btn-primary" type="button">Tes Buta Warna</button>
+                return <button onClick={() => props.showPage("tes-buta-warna")} className="btn btn-primary" type="button">Tes Buta Warna</button>
             }
 
             return (
@@ -99,7 +99,7 @@
             return <div><h1>Coba</h1></div>
         }
 
-        Pages.TebakKarakterButaWarna = function () {
+        Pages.TebakKarakterButaWarna = function (props) {
             // TODO membuat hingga 20
             // TODO mengatur gambar
             const [questions] = React.useState([
@@ -130,6 +130,10 @@
                     setCurrentQuestion(currentQuestion + 1);
                 }
             };
+
+            function Button1() {
+                return <button onClick={() => props.showPage('home')} className="btn btn-primary">Home</button>
+            }
 
             return (
                 <div>
@@ -190,7 +194,8 @@
                             </div>
                         )}
                         <hr />
-                        <button onClick={() => navigatge('/')} className="btn btn-primary">Home</button>
+                        
+                        <Partials.ButtonGroup Button1={() => <Button1 />}/>
                     </div>
                 </div>
             )
@@ -212,37 +217,31 @@
     <script type="text/babel">
         // Komponen App
         function App() {
-            // TODO bingung bro cara memindah page
-
             // State untuk menentukan halaman yang sedang aktif
             const [activePage, setActivePage] = React.useState("home");
-
-            // Daftar semua halaman dengan kontennya
-            const pages = {
-                home: () => <Pages.Home />,
-                about: () => <Pages.About />,
-                coba: () => <Pages.Coba />,
-                testButaWarna: () => <Pages.TebakKarakterButaWarna />
-                // Anda bisa menambahkan halaman lain di sini
-            };
 
             // Fungsi untuk menampilkan halaman yang dipilih
             const showPage = (page) => {
                 setActivePage(page);
             };
 
-            // Mendapatkan komponen dari halaman yang aktif
-            const ActiveComponent = pages[activePage];
-
             return (
                 <React.Fragment>
+                    {/* Konten halaman yang sedang aktif */}
                     <div className="m-3 p-2">
-                        <ActiveComponent />
+                        {activePage === "home" && <Pages.Home showPage={showPage} />}
+                        {activePage === "tes-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
+                        {activePage === "about" && <Pages.About />}
+                        {activePage === "coba" && <Pages.Coba />}
+                        {/* Anda dapat menambahkan halaman lain di sini */}
                     </div>
+
+                    {/* Footer */}
                     <Partials.Footer />
                 </React.Fragment>
             );
         }
+
     </script>
 
     <script type="text/babel">
