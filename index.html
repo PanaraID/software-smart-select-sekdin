@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,46 +11,67 @@
     <!-- Babel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
+
 <body>
 
-<div id="root"></div>
+    <div id="root"></div>
 
-<script type="text/babel">
-    const Partials = {}
+    <script type="text/babel">
+        const Partials = {}
 
-    Partials.Header = function() {
-        return (
-            <div>
-                <h1>Header</h1>
-            </div>
-        );
-    }
-</script>
+        Partials.Header = function () {
+            return (
+                <div>
+                    <h1>Header</h1>
+                </div>
+            );
+        }
 
-<script type="text/babel">
-    const Pages = {}
+        Partials.Footer = function () {
+            return (
+                <div>
+                    <h1>Footer</h1>
+                </div>
+            );
+        }
+    </script>
 
-    Pages.Home = function() {
-        return (
-            <div>
-                <h1>Home</h1>
-                <Partials.Header />
-            </div>
-        );
-    }
-</script>
+    <script type="text/babel">
+        const Pages = {}
 
-<script type="text/babel">
-    function App() {
-        return (
-            <div>
-                <Pages.Home />
-            </div>
-        );
-    }
-    
-    ReactDOM.render(<App />, document.getElementById('root'));
-</script>
+        Pages.Home = function () {
+            return (
+                <div>
+                    <Partials.Header />
+                    <h1>Home</h1>
+                    <Partials.Footer />
+                </div>
+            );
+        }
+
+        Pages.About = function () {
+            return (
+                <div>
+                    <Partials.Header />
+                    <h1>About</h1>
+                    <Partials.Footer />
+                </div>
+            )
+        }
+    </script>
+
+    <script type="text/babel">
+        function App() {
+            return (
+                <div>
+                    <Pages.Home />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 
 </body>
+
 </html>
