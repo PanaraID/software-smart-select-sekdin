@@ -78,7 +78,7 @@
             }
 
             function Button2() {
-                return <button onClick={() => props.showPage("tes-buta-warna")} className="btn btn-primary" type="button">Tes Buta Warna</button>
+                return <button onClick={() => props.showPage("tes-tebak-karakter-buta-warna")} className="btn btn-primary" type="button">Tes Buta Warna</button>
             }
 
             return (
@@ -230,7 +230,7 @@
                     {/* Konten halaman yang sedang aktif */}
                     <div className="m-3 p-2">
                         {activePage === "home" && <Pages.Home showPage={showPage} />}
-                        {activePage === "tes-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
+                        {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "about" && <Pages.About />}
                         {activePage === "coba" && <Pages.Coba />}
                         {/* Anda dapat menambahkan halaman lain di sini */}
