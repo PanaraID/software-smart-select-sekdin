@@ -74,13 +74,20 @@
         const Pages = {}
 
         Pages.Home = function () {
+            function Button1() {
+                return <button className="btn btn-primary" type="button">Cenetan</button>
+            }
+
+            function Button2() {
+                return <button className="btn btn-primary" type="button">Tombol</button>
+            }
+
             return (
                 <div className="container card">
                     <Partials.Header text="Aplikasi Pintar Pemilihan Sekolah Kedinasan" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
-                    <div className="d-flex justify-content-evenly">
-                    </div>
+                    <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
             )
         }
