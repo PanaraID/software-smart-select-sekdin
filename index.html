@@ -172,6 +172,17 @@
             )
         }
 
+        Pages.ApakahKamuButaWarna = function() {
+            return (
+                <div className="container card">
+                    <Partials.Header text="YUK CEK SEKOLAH APAKAH KAMU BUTA WARNA?" />
+                    <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
+
+                    <div className="d-flex justify-content-evenly">
+                    </div>
+                </div>
+            )
+        }
     </script>
 
     <script type="text/babel">
@@ -185,7 +196,7 @@
                 home: () => <Pages.Home />,
                 about: () => <Pages.About />,
                 coba: () => <Pages.Coba />,
-                hai: () => <Pages.TebakKarakterButaWarna />
+                testButaWarna: () => <Pages.TebakKarakterButaWarna />
                 // Anda bisa menambahkan halaman lain di sini
             };
 
