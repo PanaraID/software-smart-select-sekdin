@@ -12,7 +12,7 @@
     <!-- ReactJS -->
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    
+
     <!-- Babel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
@@ -22,6 +22,38 @@
     <div id="root"></div>
 
     <script type="text/babel">
+        const Partials = {}
+
+        Partials.Footer = function () {
+            return (
+                <nav className="navbar bg-dark border-bottom border-body fixed-bottom text-center">
+                    <div className="container-fluid justify-content-center">
+                        <span className="navbar-text text-white">
+                            Copyright PT Pendidikan Abdi Negara | Panara Course
+                        </span>
+                    </div>
+                </nav>
+            )
+        }
+    </script>
+
+    <script type="text/babel">
+        const Pages = {}
+
+        Pages.Home = function() {
+            return <div><h1>Home</h1></div>
+        }
+
+        Pages.About = function() {
+            return <div><h1>About</h1></div>
+        }
+
+        Pages.Coba = function() {
+            return <div><h1>Coba</h1></div>
+        }
+    </script>
+
+    <script type="text/babel">
         // Komponen App
         function App() {
             // State untuk menentukan halaman yang sedang aktif
@@ -29,8 +61,9 @@
 
             // Daftar semua halaman dengan kontennya
             const pages = {
-                home: () => <div><h1>Home</h1></div>,
-                about: () => <div><h1>About</h1></div>
+                home: () => <Pages.Home />,
+                about: () => <Pages.About />,
+                coba: () => <Pages.Coba />
                 // Anda bisa menambahkan halaman lain di sini
             };
 
@@ -54,6 +87,7 @@
                     </ul>
                     {/* Konten dari halaman yang aktif */}
                     <ActiveComponent />
+                    <Partials.Footer />
                 </div>
             );
         }
