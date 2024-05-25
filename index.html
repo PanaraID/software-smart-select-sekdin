@@ -15,10 +15,35 @@
 <div id="root"></div>
 
 <script type="text/babel">
+    const Partials = {}
+
+    Partials.Header = function() {
+        return (
+            <div>
+                <h1>Header</h1>
+            </div>
+        );
+    }
+</script>
+
+<script type="text/babel">
+    const Pages = {}
+
+    Pages.Home = function() {
+        return (
+            <div>
+                <h1>Home</h1>
+                <Partials.Header />
+            </div>
+        );
+    }
+</script>
+
+<script type="text/babel">
     function App() {
         return (
             <div>
-                <h1>Hello, World!</h1>
+                <Pages.Home />
             </div>
         );
     }
