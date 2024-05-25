@@ -212,6 +212,8 @@
     <script type="text/babel">
         // Komponen App
         function App() {
+            // TODO bingung bro cara memindah page
+
             // State untuk menentukan halaman yang sedang aktif
             const [activePage, setActivePage] = React.useState("home");
 
@@ -233,19 +235,12 @@
             const ActiveComponent = pages[activePage];
 
             return (
-                <div>
-                    {/* Navigasi dinamis */}
-                    <ul>
-                        {Object.keys(pages).map((page) => (
-                            <li key={page}>
-                                <button onClick={() => showPage(page)}>{page}</button>
-                            </li>
-                        ))}
-                    </ul>
-                    {/* Konten dari halaman yang aktif */}
-                    <ActiveComponent />
+                <React.Fragment>
+                    <div className="m-3 p-2">
+                        <ActiveComponent />
+                    </div>
                     <Partials.Footer />
-                </div>
+                </React.Fragment>
             );
         }
     </script>
