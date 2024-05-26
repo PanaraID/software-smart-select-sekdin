@@ -34,6 +34,12 @@
 
     <div id="root"></div>
 
+    <script>
+        function randomID() {
+            return Math.random().toString(36).substring(2, 10);
+        }
+    </script>
+
     <script type="text/babel">
         const Partials = {}
 
@@ -63,18 +69,21 @@
         }
 
         Partials.SelectInput = function (props) {
-            // props.items - [[value,text]]
+            // props.label
+            // props.options - [[value,text]]
             // props.selectetValue
-            props.items()
+            const id = randomID();
+            const options = props.options;
+            
             return (
                 <div className="input-group mb-3">
-                    <select className="form-select" id="inputGroupSelect02">
-                        <option selected value="">Pilih</option>
+                    <select className="form-select" id={"inputGroupSelect" + id}>
+                        <option >Pilih</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
-                    <label className="input-group-text" for="inputGroupSelect02">Pilihan Sekolah</label>
+                    <label className="input-group-text" htmlFor={"inputGroupSelect" + id}>{props.label}</label>
                 </div>
             )
         }
@@ -246,21 +255,16 @@
                 return <button onClick={() => props.showPage("apakah-kamu-buta-warna")} className="btn btn-primary">Lanjutkan</button>
             }
 
+            const options = [
+                ["SMA", "SMA"]
+            ]
+
             return (
                 <div>
                     <Partials.Header text="YUK CEK SEKOLAH KEDINASNAN MANA YANG TEPAT UNTUK KAMU" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
-                    <div className="input-group mb-3">
-                        <select className="form-select" id="inputGroupSelect02">
-                            <option selected value="">Pilih</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                        <label className="input-group-text" for="inputGroupSelect02">Pilihan Sekolah</label>
-                    </div>
-
+                    <Partials.SelectInput label="Pilihan Sekolah" options={options} />
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
