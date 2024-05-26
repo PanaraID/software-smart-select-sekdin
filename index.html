@@ -368,6 +368,11 @@
         Pages.Hasil = function (props) {
             const showPage = props.showPage;
 
+            // TODO
+            const pilihanSekolah = null;
+            const apakahButaWarna = null;
+            const berapaMinus = null;
+
             function ButtonCek(props) {
                 return <button onClick={() => showPage(props.page)} className="btn btn-primary">Cek</button>
             }
@@ -389,27 +394,15 @@
 
             return (
                 <div>
-                    <div>
-                        <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
-                        <ul class="list-group">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                            <li class="list-group-item">A fourth item</li>
-                            <li class="list-group-item">And a fifth one</li>
-                        </ul>
-                    </div>
-                    <hr />
+                    <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
                     <div>
                         <div class="alert alert-info" role="alert">
                             Jawabanmu
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">{pilihanSekolah ? pilihanSekolah : "kosong"}</li>
                             <li class="list-group-item">A second item</li>
                             <li class="list-group-item">A third item</li>
-                            <li class="list-group-item">A fourth item</li>
-                            <li class="list-group-item">And a fifth one</li>
                         </ul>
                     </div>
                     <hr />
@@ -420,6 +413,12 @@
                         <ul class="list-group list-group-flush">
                             <ListItem title="IPDN" page="cek-ipdn" />
                             <ListItem title="STAN" page="cek-stan" />
+                            <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
+                            <ListItem title="POLTEK SSN" page="cek-ssn" />
+                            <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
+                            <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
+                            <ListItem title="STMKG" page="cek-stmkg" />
+                            <ListItem title="STIN" page="cek-stin" />
                         </ul>
                     </div>
 
