@@ -91,14 +91,6 @@
             )
         }
 
-        Pages.About = function () {
-            return <div><h1>About</h1></div>
-        }
-
-        Pages.Coba = function () {
-            return <div><h1>Coba</h1></div>
-        }
-
         Pages.TebakKarakterButaWarna = function (props) {
             // TODO membuat hingga 20
             // TODO mengatur gambar
@@ -245,7 +237,6 @@
     </script>
 
     <script type="text/babel">
-        // Komponen App
         function App() {
             // State untuk menentukan halaman yang sedang aktif
             const [activePage, setActivePage] = React.useState("home");
@@ -264,9 +255,6 @@
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} />}
-                        {activePage === "about" && <Pages.About />}
-                        {activePage === "coba" && <Pages.Coba />}
-                        {/* Anda dapat menambahkan halaman lain di sini */}
                     </div>
 
                     {/* Footer */}
