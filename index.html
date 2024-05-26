@@ -56,6 +56,23 @@
             )
         }
 
+        Partials.SelectInput = function (props) {
+            // props.items - [[value,text]]
+            // props.selectetValue
+            props.items()
+            return (
+                <div className="input-group mb-3">
+                    <select className="form-select" id="inputGroupSelect02">
+                        <option selected value="">Pilih</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label className="input-group-text" for="inputGroupSelect02">Pilihan Sekolah</label>
+                </div>
+            )
+        }
+
         Partials.Footer = function () {
             return (
                 <nav className="navbar bg-dark border-bottom border-body fixed-bottom text-center">
@@ -186,16 +203,37 @@
                             </div>
                         )}
                         <hr />
-                        
-                        <Partials.ButtonGroup Button1={() => <Button1 />}/>
+
+                        <Partials.ButtonGroup Button1={() => <Button1 />} />
                     </div>
                 </div>
             )
         }
 
         Pages.CekKedinasanSekolah = function (props) {
+            // State untuk menyimpan nilai yang dipilih dari dropdown
+            const [selectedValue, setSelectedValue] = React.useState('');
+
+            // Function untuk menangani perubahan nilai pada dropdown
+            const handleChange = (event) => {
+                setSelectedValue(event.target.value);
+            };
+
+            // Function untuk menangani pengiriman formulir
+            const handleSubmit = (event) => {
+                event.preventDefault();
+                // Lakukan sesuatu dengan nilai yang dipilih, seperti mengirimkannya ke server
+                console.log('Nilai yang dipilih:', selectedValue);
+                // Anda juga dapat mereset dropdown setelah pengiriman
+                setSelectedValue('');
+            };
+
             function Button1() {
                 return <button onClick={() => props.showPage("home")} className="btn btn-primary">Kembali</button>
+            }
+
+            function Button2() {
+                return <button onClick={() => props.showPage("apakah-kamu-buta-warna")} className="btn btn-primary">Lanjutkan</button>
             }
 
             return (
@@ -203,14 +241,44 @@
                     <Partials.Header text="YUK CEK SEKOLAH KEDINASNAN MANA YANG TEPAT UNTUK KAMU" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
-                    <Partials.ButtonGroup Button1={() => <Button1 />}/>
+                    <div>
+                        <h2>Dropdown Sederhana</h2>
+                        <form onSubmit={handleSubmit}>
+                            {/* Dropdown */}
+                            <select value={selectedValue} onChange={handleChange}>
+                                <option value="">Pilih satu opsi...</option>
+                                <option value="nilaipertama">Nilai Pertama</option>
+                                <option value="nilaidua">Nilai Kedua</option>
+                                <option value="nilaitiga">Nilai Ketiga</option>
+                            </select>
+                            {/* Tombol Submit */}
+                            <button type="submit">Kirim</button>
+                        </form>
+                    </div>
+
+                    <div className="input-group mb-3">
+                        <select className="form-select" id="inputGroupSelect02">
+                            <option selected value="">Pilih</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label className="input-group-text" for="inputGroupSelect02">Pilihan Sekolah</label>
+                    </div>
+
+
+                    <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
             )
         }
 
         Pages.ApakahKamuButaWarna = function (props) {
             function Button1() {
-                return <button onClick={() => props.showPage("apakah-kamu-buta-warna")} className="btn btn-primary">Kembali</button>
+                return <button onClick={() => props.showPage("cek-kedinasan-sekolah")} className="btn btn-primary">Kembali</button>
+            }
+
+            function Button2() {
+                return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Lanjutkan</button>
             }
 
             return (
@@ -218,7 +286,59 @@
                     <Partials.Header text="YUK CEK SEKOLAH APAKAH KAMU BUTA WARNA?" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
-                    <Partials.ButtonGroup Button1={() => <Button1 />}/>
+                    <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
+                </div>
+            )
+        }
+
+        // props.pilihanSekolah
+        // props.apakahButaWarna
+        // props.berapaMinus
+        Pages.Hasil = function (props) {
+            const showPage = props.showPage;
+
+            function ButtonCek(props) {
+                return <button onClick={() => showPage(props.page)} className="btn btn-primary">Cek</button>
+            }
+
+            function ListItem(props) {
+                return (
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-around">
+                            <span>{props.title}</span>
+                            <ButtonCek page={props.page} />
+                        </div>
+                    </li>
+                )
+            }
+
+            function Button1() {
+                return <button onClick={() => showPage("home")} className="btn btn-primary">Kembali</button>
+            }
+
+            return (
+                <div className="container card">
+                    <div>
+                        <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
+                        <ul class="list-group">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">A fourth item</li>
+                            <li class="list-group-item">And a fifth one</li>
+                        </ul>
+                    </div>
+                    <hr />
+                    <div>
+                        <div class="alert alert-info" role="alert">
+                            Jawabanmu
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <ListItem title="IPDN" page="home" />            
+                        </ul>
+                    </div>
+
+                    <Partials.ButtonGroup Button1={() => <Button1 />} />
                 </div>
             )
         }
@@ -253,7 +373,8 @@
                         {activePage === "home" && <Pages.Home showPage={showPage} />}
                         {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} />}
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
-                        {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} />}
+                        {activePage === "apakah-kamu-buta-warna" && <Pages.Hasil showPage={showPage} />}
+                        {activePage === "hasil" && <Pages.ApakahKamuButaWarna showPage={showPage} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} />}
                     </div>
 
