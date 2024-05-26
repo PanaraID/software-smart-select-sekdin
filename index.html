@@ -11,6 +11,10 @@
         #content {
             width: fit-content;
         }
+
+        .btn {
+            margin: 10px;
+        }
     </style>
 
     <!-- ReactJS -->
@@ -102,6 +106,10 @@
 
             return (
                 <div>
+                    <div className="text-center border mb-3">
+                        <h1>Software</h1>
+                        <h4>Smart Select</h4>
+                    </div>
                     <Partials.Header text="Aplikasi Pintar Pemilihan Sekolah Kedinasan" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
@@ -281,7 +289,7 @@
         Pages.Cek = {}
 
         Pages.Cek.Partials = {
-            TombolKembali: function(props) {
+            TombolKembali: function (props) {
                 return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Kembali</button>
             }
         }
