@@ -99,7 +99,7 @@
             }
 
             return (
-                <div className="container card">
+                <div>
                     <Partials.Header text="Aplikasi Pintar Pemilihan Sekolah Kedinasan" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
@@ -237,7 +237,7 @@
             }
 
             return (
-                <div className="container card">
+                <div>
                     <Partials.Header text="YUK CEK SEKOLAH KEDINASNAN MANA YANG TEPAT UNTUK KAMU" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
@@ -282,12 +282,58 @@
             }
 
             return (
-                <div className="container card">
+                <div>
                     <Partials.Header text="YUK CEK SEKOLAH APAKAH KAMU BUTA WARNA?" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
+            )
+        }
+
+        Pages.CekIPDN = function (props) {
+            function Button1() {
+                return <button onClick={() => props.showPage("cek-kedinasan-sekolah")} className="btn btn-primary">Kembali</button>
+            }
+
+            function Button2() {
+                return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Lanjutkan</button>
+            }
+
+            return (
+                <React.Fragment>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
+                </React.Fragment>
             )
         }
 
@@ -317,7 +363,7 @@
             }
 
             return (
-                <div className="container card">
+                <div>
                     <div>
                         <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
                         <ul class="list-group">
@@ -334,7 +380,7 @@
                             Jawabanmu
                         </div>
                         <ul class="list-group list-group-flush">
-                            <ListItem title="IPDN" page="home" />            
+                            <ListItem title="IPDN" page="cek-ipdn" />
                         </ul>
                     </div>
 
@@ -345,7 +391,7 @@
 
         Pages.BerapaMinus = function (props) {
             return (
-                <div className="container card">
+                <div>
                     <Partials.Header text="YUK CEK SEKOLAH APAKAH KAMU BUTA WARNA?" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
@@ -369,12 +415,13 @@
             return (
                 <React.Fragment>
                     {/* Konten halaman yang sedang aktif */}
-                    <div className="m-3 p-2">
+                    <div className="m-3 p-2 container card">
                         {activePage === "home" && <Pages.Home showPage={showPage} />}
                         {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} />}
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} />}
                         {activePage === "hasil" && <Pages.Hasil showPage={showPage} />}
+                        {activePage === "cek-ipdn" && <Pages.CekIPDN showPage={showPage} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} />}
                     </div>
 
