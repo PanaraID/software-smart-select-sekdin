@@ -43,7 +43,7 @@
             // contoh:
             // <button className="btn btn-primary" type="button">Button</button>
             return (
-                <div className="d-flex justify-content-around container">
+                <div className="d-flex justify-content-around container p-4">
                     {props.Button2 ? (
                         <React.Fragment>
                             <props.Button1 />
@@ -124,7 +124,7 @@
             };
 
             function Button1() {
-                return <button onClick={() => props.showPage('home')} className="btn btn-primary">Home</button>
+                return <button onClick={() => props.showPage('home')} className="btn btn-primary">Kembali</button>
             }
 
             return (
