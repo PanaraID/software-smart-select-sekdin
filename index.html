@@ -69,19 +69,17 @@
         }
 
         Partials.SelectInput = function (props) {
-            // props.label
-            // props.options - [[value,text]]
-            // props.selectetValue
             const id = randomID();
             const options = props.options;
-            
+            const onChange = props.onChange;
+
             return (
                 <div className="input-group mb-3">
-                    <select className="form-select" id={"inputGroupSelect" + id}>
+                    <select className="form-select" id={"inputGroupSelect" + id} onChange={onChange}>
                         <option >Pilih</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        {options.map(data => (
+                            <option value={data[0]}>{data[1]}</option>
+                        ))}
                     </select>
                     <label className="input-group-text" htmlFor={"inputGroupSelect" + id}>{props.label}</label>
                 </div>
@@ -230,21 +228,20 @@
         }
 
         Pages.CekKedinasanSekolah = function (props) {
+            const setSekolah = props.setSekolah;
+
             // State untuk menyimpan nilai yang dipilih dari dropdown
             const [selectedValue, setSelectedValue] = React.useState('');
 
             // Function untuk menangani perubahan nilai pada dropdown
-            const handleChange = (event) => {
+            const onChange = (event) => {
                 setSelectedValue(event.target.value);
             };
 
-            // Function untuk menangani pengiriman formulir
-            const handleSubmit = (event) => {
-                event.preventDefault();
-                // Lakukan sesuatu dengan nilai yang dipilih, seperti mengirimkannya ke server
+            const onSubmit = () => {
                 console.log('Nilai yang dipilih:', selectedValue);
                 // Anda juga dapat mereset dropdown setelah pengiriman
-                setSelectedValue('');
+                setSekolah(selectedValue);
             };
 
             function Button1() {
@@ -252,11 +249,15 @@
             }
 
             function Button2() {
-                return <button onClick={() => props.showPage("apakah-kamu-buta-warna")} className="btn btn-primary">Lanjutkan</button>
+                return <button onClick={() => {
+                    onSubmit();
+                    props.showPage("apakah-kamu-buta-warna");
+                }} className="btn btn-primary">Lanjutkan</button>
             }
 
             const options = [
-                ["SMA", "SMA"]
+                ["SMA", "SMA"],
+                ["ANU", "ANU"]
             ]
 
             return (
@@ -264,7 +265,7 @@
                     <Partials.Header text="YUK CEK SEKOLAH KEDINASNAN MANA YANG TEPAT UNTUK KAMU" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
-                    <Partials.SelectInput label="Pilihan Sekolah" options={options} />
+                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} />
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
@@ -366,9 +367,8 @@
         // props.berapaMinus
         Pages.Hasil = function (props) {
             const showPage = props.showPage;
+            const sekolah = props.sekolah;
 
-            // TODO
-            const pilihanSekolah = null;
             const apakahButaWarna = null;
             const berapaMinus = null;
 
@@ -378,8 +378,8 @@
 
             function ListItem(props) {
                 return (
-                    <li class="list-group-item">
-                        <div class="d-flex justify-content-around">
+                    <li className="list-group-item">
+                        <div className="d-flex justify-content-around">
                             <span>{props.title}</span>
                             <ButtonCek page={props.page} />
                         </div>
@@ -395,21 +395,21 @@
                 <div>
                     <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
                     <div>
-                        <div class="alert alert-info" role="alert">
+                        <div className="alert alert-info" role="alert">
                             Jawabanmu
                         </div>
-                        <ul class="list-group">
-                            <li class="list-group-item">{pilihanSekolah ? pilihanSekolah : "kosong"}</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                        <ul className="list-group">
+                            <li className="list-group-item">{sekolah ? sekolah : "kosong"}</li>
+                            <li className="list-group-item">A second item</li>
+                            <li className="list-group-item">A third item</li>
                         </ul>
                     </div>
                     <hr />
                     <div>
-                        <div class="alert alert-info" role="alert">
+                        <div className="alert alert-info" role="alert">
                             Sekolah Kedinasan Yang Cocok Untuk Kamu
                         </div>
-                        <ul class="list-group list-group-flush">
+                        <ul className="list-group list-group-flush">
                             <ListItem title="IPDN" page="cek-ipdn" />
                             <ListItem title="STAN" page="cek-stan" />
                             <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
@@ -443,6 +443,7 @@
         function App() {
             // State untuk menentukan halaman yang sedang aktif
             const [activePage, setActivePage] = React.useState("home");
+            const [sekolah, setSekolah] = React.useState();
 
             // Fungsi untuk menampilkan halaman yang dipilih
             const showPage = (page) => {
@@ -454,10 +455,10 @@
                     {/* Konten halaman yang sedang aktif */}
                     <div className="m-3 p-2 container card" id="content">
                         {activePage === "home" && <Pages.Home showPage={showPage} />}
-                        {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} />}
+                        {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} />}
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} />}
-                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} />}
+                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} />}
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} />}
