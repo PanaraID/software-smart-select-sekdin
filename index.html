@@ -604,7 +604,9 @@
                     return <button onClick={() => showPage(page)} className="btn btn-primary">Kembali</button>
                 },
                 Footer: props => {
+                    const tingkatPersaingan = props.tingkatPersaingan;
                     const persainganMasuk = props.persainganMasuk;
+
                     return (
                         <React.Fragment>
                             <div className="container card p-2 mb-3 text-center">
@@ -614,7 +616,7 @@
                                     </div>
 
                                     <div className="col-sm-4">
-                                        <b><u>Tingkat persaingan 1:57</u></b>
+                                        <b><u>Tingkat persaingan {tingkatPersaingan ? tingkatPersaingan : "KOSONG"}</u></b>
                                     </div>
 
                                     <div className="col-sm-4">
@@ -626,7 +628,7 @@
                                 <ul className="list-group">
                                     <li className="list-group-item">Maka dari itu, jika Anda adalah orang yang bekerja keras, fisik cukup bagus, nilai diatas rata - rata. Sekolah Kedinasan Poltekim adalah pilihan yang tepat</li>
                                     <li className="list-group-item">Rekomendasi untuk bimbel Panara Course adalah paket yang </li>
-                                    <li className="list-group-item">Mengingat persaingan masuk <b>{persainganMasuk}</b> sangat ketat, maka perlu sangat intensive belajar SKD dan Psikologi di Program VIP Offline</li>
+                                    <li className="list-group-item">Mengingat persaingan masuk <b>{persainganMasuk ? persainganMasuk : "KOSONG"}</b> sangat ketat, maka perlu sangat intensive belajar SKD dan Psikologi di Program VIP Offline</li>
                                     <li className="list-group-item">Cek fasilitas bimbingan belajar jika kalian memilih</li>
                                     <li className="list-group-item">Apabila ingin bergabung pada paket di atas atau melihat perbandingannya dengan paket bimbel lainnya</li>
                                 </ul>
@@ -647,7 +649,8 @@
                     <React.Fragment>
                         <h6>Berdasarkan hasil yang Anda pilih, maka IPDN adalah salah satu yang tepat untuk Anda</h6>
                         <p>IPDN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 3 dari yang lainnya.</p>
-                        <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="IPDN" />
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.63% dan jumlah yang daftar adalah 32.810</p>
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1.61" persainganMasuk="IPDN" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
