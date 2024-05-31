@@ -597,12 +597,23 @@
     <script type="text/babel">
         Pages.Informasi = {
             Partials: {
+                Header: props => {
+                    const title = props.title;
+                    return (
+                        <React.Fragment>
+                            <h6>{title ? title : "KOSONG"}</h6>
+                            <hr />
+                        </React.Fragment>
+                    )
+                },
+
                 TombolKembali: props => {
                     const showPage = props.showPage;
                     const page = props.page;
 
                     return <button onClick={() => showPage(page)} className="btn btn-primary">Kembali</button>
                 },
+
                 Footer: props => {
                     const tingkatPersaingan = props.tingkatPersaingan;
                     const persainganMasuk = props.persainganMasuk;
@@ -647,7 +658,7 @@
             IPDN: (props) => {
                 return (
                     <React.Fragment>
-                        <h6>Berdasarkan hasil yang Anda pilih, maka IPDN adalah salah satu yang tepat untuk Anda</h6>
+                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka IPDN adalah salah satu yang tepat untuk Anda" />
                         <p>IPDN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 3 dari yang lainnya.</p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.63% dan jumlah yang daftar adalah 32.810</p>
                         <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1.61" persainganMasuk="IPDN" />
@@ -659,7 +670,7 @@
             STAN: (props) => {
                 return (
                     <React.Fragment>
-                        <h6>Berdasarkan hasil yang Anda pilih, maka STAN adalah salah satu yang tepat untuk Anda</h6>
+                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka STAN adalah salah satu yang tepat untuk Anda" />
                         <p>STAN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 7 dari yang lainnya. </p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
 
