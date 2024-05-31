@@ -459,131 +459,129 @@
     <script type="text/babel">
 
 
-        Pages.Cek = {}
+        Pages.Cek = {
+            Partials: {
+                TombolKembali: function (props) {
+                    return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Kembali</button>
+                },
 
-        Pages.Cek.Partials = {
-            TombolKembali: function (props) {
-                return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Kembali</button>
-            },
+                Table: function (props) {
+                    const title = props.title;
+                    const data = props.data;
 
-            Table: function (props) {
-                const title = props.title;
-                const data = props.data;
-
-                return (
-                    <React.Fragment>
-                        <Partials.Header text={title} />
-                        <table className="table">
-                            <tbody>
-                                {data.map((element, index) => {
-                                    return (
-                                        <tr key={index}>
-                                            <td>{element[0]}</td>
-                                            <td>{element[1]}</td>
-                                        </tr>
-                                    )
-                                })}
-                            </tbody>
-                        </table>
-                    </React.Fragment>
-                )
-            },
-
-            ListInformasi: function (props) {
-                const data = props.data;
-                const numbered = props.numbered;
-
-                return (
-                    numbered ? (
-                        <ol className="list-group list-group-numbered">
-                            {data.map((result, index) => {
-                                return <li className="list-group-item" key={index}>{result}</li>
-                            })}
-                        </ol>
-                    ) : (
-                        <ul className="list-group">
-                            {data.map((result, index) => {
-                                return <li className="list-group-item" key={index}>{result}</li>
-                            })}
-                        </ul>
+                    return (
+                        <React.Fragment>
+                            <Partials.Header text={title} />
+                            <table className="table">
+                                <tbody>
+                                    {data.map((element, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{element[0]}</td>
+                                                <td>{element[1]}</td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        </React.Fragment>
                     )
-                );
-            }
-        }
+                },
 
-        Pages.Cek.IPDN = function (props) {
-            const informasiGigi = [
-                "Prothesa gigi depan (gigi seri atau gigi taring max 1 buah).",
-                "Gigi geraham yang hilang max 4 buah dan tidak hilang berurutan.",
-                "Tidak boleh memakai fixed orthodonti pada saat pemeriksaan kesehatan.",
-                "Tidak boleh adanya pewarnaan gigi yang berat.",
-                "Tidak boleh adanya hiperplasia dan hipoplasia gigi yang berat.",
-                "Tidak boleh gigi crowding berat.",
-                "Diastema max 3mm.",
-                "Openbite vertikal max 2mm. Overbite max 4mm.",
-                "Tidak dibolehkan gigi maloklusi (crossbite max 2 gigi, protrusif max 6mm dan progeni).",
-                "Tidak boleh ada gangren pulpa maupun caries profunda.",
-                "Gangren radix ditoleransi hanya 1 gigi dan harus segera diekstraksi.",
-                "Tidak boleh ada tumor di rongga mulut.",
-            ]
+                ListInformasi: function (props) {
+                    const data = props.data;
+                    const numbered = props.numbered;
 
-            function Amnesia() {
+                    return (
+                        numbered ? (
+                            <ol className="list-group list-group-numbered">
+                                {data.map((result, index) => {
+                                    return <li className="list-group-item" key={index}>{result}</li>
+                                })}
+                            </ol>
+                        ) : (
+                            <ul className="list-group">
+                                {data.map((result, index) => {
+                                    return <li className="list-group-item" key={index}>{result}</li>
+                                })}
+                            </ul>
+                        )
+                    );
+                }
+            },
+
+            IPDN: props => {
+                const informasiGigi = [
+                    "Prothesa gigi depan (gigi seri atau gigi taring max 1 buah).",
+                    "Gigi geraham yang hilang max 4 buah dan tidak hilang berurutan.",
+                    "Tidak boleh memakai fixed orthodonti pada saat pemeriksaan kesehatan.",
+                    "Tidak boleh adanya pewarnaan gigi yang berat.",
+                    "Tidak boleh adanya hiperplasia dan hipoplasia gigi yang berat.",
+                    "Tidak boleh gigi crowding berat.",
+                    "Diastema max 3mm.",
+                    "Openbite vertikal max 2mm. Overbite max 4mm.",
+                    "Tidak dibolehkan gigi maloklusi (crossbite max 2 gigi, protrusif max 6mm dan progeni).",
+                    "Tidak boleh ada gangren pulpa maupun caries profunda.",
+                    "Gangren radix ditoleransi hanya 1 gigi dan harus segera diekstraksi.",
+                    "Tidak boleh ada tumor di rongga mulut.",
+                ]
+
+                function Amnesia() {
+                    return (
+                        <React.Fragment>
+                            <p>Tidak ada penyakit bawaan, anatomi tubuh normal, bekas luka atau laparatomi tidak mempengaruhi aktifitas masih ditolerir. Serta bebas dari penyakit </p>
+                            <Pages.Cek.Partials.ListInformasi data={["Varicoucle", "Asthma", "Hepatitis B", "Hernia"]} numbered={false} />
+                        </React.Fragment>
+                    )
+                }
+
+                const data = [
+                    ["Jurusan", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
+                    ["Usia Saat Pembukaan", "Min 16 Max 21 (per Januari)"],
+                    ["Tinggi Badan", "pria 160 cm dan wanita 155 cm"],
+                    ["Gigi", <Pages.Cek.Partials.ListInformasi data={informasiGigi} numbered={true} />],
+                    ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
+                    ["Amnesia", <Amnesia />],
+                    ["Ketentuan tambahan", ""]
+                ]
+                function Button2() {
+                    return <button onClick={() => props.showPage("ipdn")} className="btn btn-primary">Lanjutkan</button>
+                }
+
                 return (
                     <React.Fragment>
-                        <p>Tidak ada penyakit bawaan, anatomi tubuh normal, bekas luka atau laparatomi tidak mempengaruhi aktifitas masih ditolerir. Serta bebas dari penyakit </p>
-                        <Pages.Cek.Partials.ListInformasi data={["Varicoucle", "Asthma", "Hepatitis B", "Hernia"]} numbered={false} />
+                        <Pages.Cek.Partials.Table title="PERSYARATAN IPDN" data={data} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
+                    </React.Fragment>
+                )
+            },
+
+            STAN: props => {
+                const data = [
+                    ["Sekdin", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
+                    ["Usia Saat Pembukaan", "Min 14 max 21 tahun"],
+                    ["Buta Warna", "Parsial"],
+                    ["Minus", "Tidak ada"],
+                    ["Silinder", "Tidak ada"],
+                    ["SLTA", "SLTA/MA/SMK-sederajat"],
+                    ["Jurusan", "Semua Jurusan"],
+                    ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
+                    ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
+                    ["Amnesia", "Tidak ada penyakit bawaan"],
+                    ["Ketentuan tambahan", ""]
+                ]
+
+                function Button2() {
+                    return <button onClick={() => props.showPage("stan")} className="btn btn-primary">Lanjutkan</button>
+                }
+
+                return (
+                    <React.Fragment>
+                        <Pages.Cek.Partials.Table title="PERSYARATAN IPDN" data={data} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
             }
-
-            const data = [
-                ["Jurusan", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
-                ["Usia Saat Pembukaan", "Min 16 Max 21 (per Januari)"],
-                ["Tinggi Badan", "pria 160 cm dan wanita 155 cm"],
-                ["Gigi", <Pages.Cek.Partials.ListInformasi data={informasiGigi} numbered={true} />],
-                ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
-                ["Amnesia", <Amnesia />],
-                ["Ketentuan tambahan", ""]
-            ]
-            function Button2() {
-                return <button onClick={() => props.showPage("ipdn")} className="btn btn-primary">Lanjutkan</button>
-            }
-
-            return (
-                <React.Fragment>
-                    <Pages.Cek.Partials.Table title="PERSYARATAN IPDN" data={data} />
-                    <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
-                </React.Fragment>
-            )
-        }
-
-        Pages.Cek.STAN = function (props) {
-
-
-            const data = [
-                ["Sekdin", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
-                ["Usia Saat Pembukaan", "Min 14 max 21 tahun"],
-                ["Buta Warna", "Parsial"],
-                ["Minus", "Tidak ada"],
-                ["Silinder", "Tidak ada"],
-                ["SLTA", "SLTA/MA/SMK-sederajat"],
-                ["Jurusan", "Semua Jurusan"],
-                ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
-                ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
-                ["Amnesia", "Tidak ada penyakit bawaan"],
-                ["Ketentuan tambahan", ""]
-            ]
-
-            function Button2() {
-                return <button onClick={() => props.showPage("stan")} className="btn btn-primary">Lanjutkan</button>
-            }
-
-            return (
-                <React.Fragment>
-                    <Pages.Cek.Partials.Table title="PERSYARATAN IPDN" data={data} />
-                    <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
-                </React.Fragment>
-            )
         }
     </script>
 
