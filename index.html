@@ -403,6 +403,14 @@
                 return <button onClick={() => showPage("home")} className="btn btn-primary">Kembali</button>
             }
 
+            function Result() {
+                return (
+                    <React.Fragment>
+
+                    </React.Fragment>
+                )
+            }
+
             return (
                 <div>
                     <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
@@ -411,9 +419,9 @@
                             Jawabanmu
                         </div>
                         <ul className="list-group">
-                            <li className="list-group-item">{sekolah ? sekolah : "kosong"}</li>
-                            <li className="list-group-item">{butaWarna ? butaWarna : "Kosong"}</li>
-                            <li className="list-group-item">{minus ? minus : "Kosong"}</li>
+                            <li className="list-group-item">Sekolah: {sekolah ? sekolah : "kosong"}</li>
+                            <li className="list-group-item">Buta Warna: {butaWarna ? butaWarna : "Kosong"}</li>
+                            <li className="list-group-item">Minus: {minus ? minus : "Kosong"}</li>
                         </ul>
                     </div>
                     <hr />
@@ -422,14 +430,22 @@
                             Sekolah Kedinasan Yang Cocok Untuk Kamu
                         </div>
                         <ul className="list-group list-group-flush">
-                            <ListItem title="IPDN" page="cek-ipdn" />
-                            <ListItem title="STAN" page="cek-stan" />
-                            <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
-                            <ListItem title="POLTEK SSN" page="cek-ssn" />
-                            <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
-                            <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
-                            <ListItem title="STMKG" page="cek-stmkg" />
-                            <ListItem title="STIN" page="cek-stin" />
+                            {sekolah && butaWarna && minus ? (
+                                <React.Fragment>
+                                    <ListItem title="IPDN" page="cek-ipdn" />
+                                    <ListItem title="STAN" page="cek-stan" />
+                                    <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
+                                    <ListItem title="POLTEK SSN" page="cek-ssn" />
+                                    <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
+                                    <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
+                                    <ListItem title="STMKG" page="cek-stmkg" />
+                                    <ListItem title="STIN" page="cek-stin" />
+                                </React.Fragment>
+                            ) : (
+                                <div className="alert alert-warning text-center" role="alert">
+                                    <h6>Mohon Isi Semuanya</h6>
+                                    <p>Jika tidak, maka tidak akan keluar rekomendasi sekolah</p>
+                                </div>)}
                         </ul>
                     </div>
 
