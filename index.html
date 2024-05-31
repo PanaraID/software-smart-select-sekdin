@@ -279,7 +279,7 @@
                 ["Buta Warna", "Buta Warna"],
                 ["Tidak Buta Warna", "Tidak Buta Warna"]
             ];
-            
+
 
             function onChange(event) {
                 setButawarna(event.target.value);
@@ -290,7 +290,7 @@
             }
 
             function Button2() {
-                return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Lanjutkan</button>
+                return <button onClick={() => props.showPage("berapa-minus")} className="btn btn-primary">Lanjutkan</button>
             }
 
             return (
@@ -382,7 +382,7 @@
             const showPage = props.showPage;
             const sekolah = props.sekolah;
             const butaWarna = props.butaWarna;
-            // const minus = props.minus;
+            const minus = props.minus;
 
             function ButtonCek(props) {
                 return <button onClick={() => showPage(props.page)} className="btn btn-primary">Cek</button>
@@ -413,7 +413,7 @@
                         <ul className="list-group">
                             <li className="list-group-item">{sekolah ? sekolah : "kosong"}</li>
                             <li className="list-group-item">{butaWarna ? butaWarna : "Kosong"}</li>
-                            <li className="list-group-item">A third item</li>
+                            <li className="list-group-item">{minus ? minus : "Kosong"}</li>
                         </ul>
                     </div>
                     <hr />
@@ -439,13 +439,36 @@
         }
 
         Pages.BerapaMinus = function (props) {
+            const setMinus = props.setMinus;
+
+            const options = [
+                ["Tidak Minus", "Tidak Minus"],
+                ["Tidak Buta Warna", "Tidak Buta Warna"]
+            ];
+
+
+            function onChange(event) {
+                setMinus(event.target.value);
+            }
+
+            function Button1() {
+                return <button onClick={() => props.showPage("home")} className="btn btn-primary">Kembali</button>
+            }
+
+            function Button2() {
+                return <button onClick={() => {props.showPage("hasil")}} className="btn btn-primary">Lanjutkan</button>
+            }
+
             return (
                 <div>
-                    <Partials.Header text="YUK CEK SEKOLAH APAKAH KAMU BUTA WARNA?" />
-                    <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
+                    <Partials.Header text="YUK CEK TINGKAT MINUS MATA KAMU" />
+
+                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} />
 
                     <div className="d-flex justify-content-evenly">
                     </div>
+
+                    <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
             )
         }
@@ -457,6 +480,7 @@
             const [activePage, setActivePage] = React.useState("home");
             const [sekolah, setSekolah] = React.useState();
             const [butaWarna, setButawarna] = React.useState();
+            const [minus, setMinus] = React.useState();
 
             // Fungsi untuk menampilkan halaman yang dipilih
             const showPage = (page) => {
@@ -471,10 +495,10 @@
                         {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} />}
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} />}
-                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} />}
+                        {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} />}
+                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
-                        {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} />}
                     </div>
 
                     {/* Footer */}
