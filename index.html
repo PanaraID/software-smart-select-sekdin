@@ -385,7 +385,7 @@
                     <React.Fragment>
                         {checkIPDN() ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
                         {checkSTAN() ? <ListItem title="STAN" page="cek-stan" /> : ""}
-                        {checkPoltekipPoltekim() ? <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" /> : ""}
+                        {checkPoltekipPoltekim() ? <ListItem title="POLTEKIP/POLTEKIM" page="cek-poltekip-poltekim" /> : ""}
                         <ListItem title="POLTEK SSN" page="cek-ssn" />
                         <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
                         <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
@@ -594,6 +594,48 @@
                         <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
+            },
+
+            PoltekipPoltekim: props => {
+                const data1 = [
+                    ["Sekdin", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
+                    ["Usia Saat Pembukaan", "Min 14 max 21 tahun"],
+                    ["Buta Warna", "Parsial"],
+                    ["Minus", "Tidak ada"],
+                    ["Silinder", "Tidak ada"],
+                    ["SLTA", "SLTA/MA/SMK-sederajat"],
+                    ["Jurusan", "Semua Jurusan"],
+                    ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
+                    ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
+                    ["Amnesia", "Tidak ada penyakit bawaan"],
+                    ["Ketentuan tambahan", ""]
+                ]
+
+                const data2 = [
+                    ["Sekdin", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
+                    ["Usia Saat Pembukaan", "Min 14 max 21 tahun"],
+                    ["Buta Warna", "Parsial"],
+                    ["Minus", "Tidak ada"],
+                    ["Silinder", "Tidak ada"],
+                    ["SLTA", "SLTA/MA/SMK-sederajat"],
+                    ["Jurusan", "Semua Jurusan"],
+                    ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
+                    ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
+                    ["Amnesia", "Tidak ada penyakit bawaan"],
+                    ["Ketentuan tambahan", ""]
+                ]
+
+                function Button2() {
+                    return <button onClick={() => props.showPage("stan")} className="btn btn-primary">Lanjutkan</button>
+                }
+
+                return (
+                    <React.Fragment>
+                        <Pages.Cek.Partials.Table title="PERSYARATAN POLTEKIP" data={data1} />
+                        <Pages.Cek.Partials.Table title="PERSYARATAN POLTEKIM" data={data2} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
+                    </React.Fragment>
+                )
             }
         }
     </script>
@@ -682,6 +724,19 @@
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stan"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
+            },
+
+            PoltekipPoltekim: props => {
+                return (
+                    <React.Fragment>
+                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka STAN adalah salah satu yang tepat untuk Anda" />
+                        <p>STAN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 7 dari yang lainnya. </p>
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
+
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:46" persainganMasuk="STAN" />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stan"} showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
             }
         }
     </script>
@@ -712,6 +767,7 @@
                         {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
+                        {activePage === "cek-poltekip-poltekim" && <Pages.Cek.PoltekipPoltekim showPage={showPage} />}
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
