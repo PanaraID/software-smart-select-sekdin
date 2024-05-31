@@ -41,61 +41,59 @@
     </script>
 
     <script type="text/babel">
-        const Partials = {}
-
-        Partials.Header = function (props) {
-            return (
-                <div className="alert alert-primary text-center" role="alert">
-                    {props.text}
-                </div>
-            )
-        }
-
-        Partials.ButtonGroup = function (props) {
-            // contoh:
-            // <button className="btn btn-primary" type="button">Button</button>
-            return (
-                <div className="d-flex justify-content-around container p-4">
-                    {props.Button2 ? (
-                        <React.Fragment>
-                            <props.Button1 />
-                            <props.Button2 />
-                        </React.Fragment>
-                    ) : (
-                        <props.Button1 />
-                    )}
-                </div>
-            )
-        }
-
-        Partials.SelectInput = function (props) {
-            const id = randomID();
-            const options = props.options;
-            const onChange = props.onChange;
-
-            return (
-                <div className="input-group mb-3">
-                    <select className="form-select" id={"inputGroupSelect" + id} onChange={onChange}>
-                        <option >Pilih</option>
-                        {options.map((data, index) => (
-                            <option value={data[0]} key={index}>{data[1]}</option>
-                        ))}
-                    </select>
-                    <label className="input-group-text" htmlFor={"inputGroupSelect" + id}>{props.label}</label>
-                </div>
-            )
-        }
-
-        Partials.Footer = function () {
-            return (
-                <nav className="navbar bg-dark border-bottom border-body fixed-bottom text-center">
-                    <div className="container-fluid justify-content-center">
-                        <span className="navbar-text text-white">
-                            Copyright PT Pendidikan Abdi Negara | Panara Course
-                        </span>
+        const Partials = {
+            Header: (props) => {
+                return (
+                    <div className="alert alert-primary text-center" role="alert">
+                        {props.text}
                     </div>
-                </nav>
-            )
+                )
+            },
+
+            ButtonGroup: (props) => {
+                return (
+                    <div className="d-flex justify-content-around container p-4">
+                        {props.Button2 ? (
+                            <React.Fragment>
+                                <props.Button1 />
+                                <props.Button2 />
+                            </React.Fragment>
+                        ) : (
+                            <props.Button1 />
+                        )}
+                    </div>
+                )
+            },
+
+            SelectInput: (props) => {
+                const id = randomID();
+                const options = props.options;
+                const onChange = props.onChange;
+
+                return (
+                    <div className="input-group mb-3">
+                        <select className="form-select" id={"inputGroupSelect" + id} onChange={onChange}>
+                            <option >Pilih</option>
+                            {options.map((data, index) => (
+                                <option value={data[0]} key={index}>{data[1]}</option>
+                            ))}
+                        </select>
+                        <label className="input-group-text" htmlFor={"inputGroupSelect" + id}>{props.label}</label>
+                    </div>
+                )
+            },
+
+            Footer: () => {
+                return (
+                    <nav className="navbar bg-dark border-bottom border-body fixed-bottom text-center">
+                        <div className="container-fluid justify-content-center">
+                            <span className="navbar-text text-white">
+                                Copyright PT Pendidikan Abdi Negara | Panara Course
+                            </span>
+                        </div>
+                    </nav>
+                )
+            }
         }
     </script>
 
