@@ -108,7 +108,7 @@
             }
 
             function Button2() {
-                return <button onClick={() => props.showPage("tebak-karakter-buta-warna")} className="btn btn-primary" type="button">Tes Buta Warna</button>
+                return <button onClick={() => props.showPage("cek-ipdn")} className="btn btn-primary" type="button">Tes Buta Warna</button>
             }
 
             return (
@@ -301,9 +301,13 @@
         }
 
         Pages.Cek.Template = function (props) {
+            const title = props.title;
+            const data = props.data;
+            console.log(data)
+
             return (
                 <React.Fragment>
-                    <Partials.Header text={props.title} />
+                    <Partials.Header text={title} />
                     <table className="table">
                         <thead>
                             <tr>
@@ -314,8 +318,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {data.map((element, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <th scope="row">{index + 1}</th>
+                                        <td>{element.first}</td>
+                                        <td>{element.last}</td>
+                                        <td>{element.handle}</td>
+                                    </tr>
+                                )
+                            })}
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">Sekdin</th>
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
@@ -338,13 +352,16 @@
         }
 
         Pages.Cek.IPDN = function (props) {
+            const data = [
+                ["dasda", "dsad"]
+            ]
             function Button2() {
                 return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Lanjutkan</button>
             }
 
             return (
                 <React.Fragment>
-                    <Pages.Cek.Template title="PERSYARATAN IPDN" />
+                    <Pages.Cek.Template title="PERSYARATAN IPDN" data={data} />
                     <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                 </React.Fragment>
             )
@@ -357,7 +374,7 @@
 
             return (
                 <React.Fragment>
-                    <Pages.Cek.Template title="PERSYARATAN IPDN" />
+                    <Pages.Cek.Template title="PERSYARATAN IPDN" data={data} />
                     <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                 </React.Fragment>
             )
@@ -501,6 +518,7 @@
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} />}
                         {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
+
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
                     </div>
