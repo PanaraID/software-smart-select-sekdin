@@ -313,18 +313,6 @@
             const butaWarna = props.butaWarna;
             const minus = props.minus;
 
-            // Variabel ini akan berubah-ubah nanti saat seleksi
-            let schools = [];
-            let blindEye = [];
-
-            // blindEye = [
-            //         "Tidak Minus",
-            //         "Minus < 1",
-            //         "Minus 1-4",
-            //         "Minus 4 - 6",
-            //         "Minus > 6",
-            //     ];
-
             function ButtonCek(props) {
                 return <button onClick={() => showPage(props.page)} className="btn btn-primary">Cek</button>
             }
@@ -345,33 +333,36 @@
             }
 
             function Result() {
-                // IPDN
-                let booleanIPDN = true;
-                schools = [
-                    "SMA IPA",
-                    "SMA IPS",
-                    "SMA JURUSAN LAINNYA",
-                    "MA IPA",
-                    "MA IPS",
-                    "MA ILMU KEAGAMAAN",
-                    "MA BAHASA",
-                    "MA JURUSAN LAIN",
-                    "SMK TEKNIK INFORMATIKA/KOMPUTER",
-                    "SMK TEKNIK ELEKTRONIKA",
-                    "SMK JURUSAN LAINNYA"
-                ];
-                blindEye = [
-                    "Tidak Minus",
-                    "Minus < 1"
-                ];
+                function checkIPDN() {
+                    let result = true;
+                    const schools = [
+                        "SMA IPA",
+                        "SMA IPS",
+                        "SMA JURUSAN LAINNYA",
+                        "MA IPA",
+                        "MA IPS",
+                        "MA ILMU KEAGAMAAN",
+                        "MA BAHASA",
+                        "MA JURUSAN LAIN",
+                        "SMK TEKNIK INFORMATIKA/KOMPUTER",
+                        "SMK TEKNIK ELEKTRONIKA",
+                        "SMK JURUSAN LAINNYA"
+                    ];
+                    const blindEye = [
+                        "Tidak Minus",
+                        "Minus < 1"
+                    ];
 
-                booleanIPDN &= schools.includes(sekolah) ? true : false;
-                booleanIPDN &= "Tidak Buta Warna" === butaWarna ? true : false;
-                booleanIPDN &= blindEye.includes(minus) ? true : false;
+                    result &= schools.includes(sekolah) ? true : false;
+                    result &= "Tidak Buta Warna" === butaWarna ? true : false;
+                    result &= blindEye.includes(minus) ? true : false;
+
+                    return result;
+                }
 
                 return (
                     <React.Fragment>
-                        {booleanIPDN ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
+                        {checkIPDN() ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
                         <ListItem title="STAN" page="cek-stan" />
                         <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
                         <ListItem title="POLTEK SSN" page="cek-ssn" />
