@@ -297,63 +297,86 @@
         Pages.Cek.Partials = {
             TombolKembali: function (props) {
                 return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Kembali</button>
+            },
+
+            Table: function (props) {
+                const title = props.title;
+                const data = props.data;
+
+                return (
+                    <React.Fragment>
+                        <Partials.Header text={title} />
+                        <table className="table">
+                            <tbody>
+                                {data.map((element, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{element[0]}</td>
+                                            <td>{element[1]}</td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </React.Fragment>
+                )
+            },
+
+            ListInformasi: function (props) {
+                const data = props.data;
+                const numbered = props.numbered;
+
+                return (
+                    numbered ? (
+                        <ol className="list-group list-group-numbered">
+                            {data.map((result, index) => {
+                                return <li className="list-group-item" key={index}>{result}</li>
+                            })}
+                        </ol>
+                    ) : (
+                        <ul className="list-group">
+                            {data.map((result, index) => {
+                                return <li className="list-group-item" key={index}>{result}</li>
+                            })}
+                        </ul>
+                    )
+                );
             }
         }
 
-        Pages.Cek.Template = function (props) {
-            const title = props.title;
-            const data = props.data;
-            console.log(data)
-
-            return (
-                <React.Fragment>
-                    <Partials.Header text={title} />
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.map((element, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <th scope="row">{index + 1}</th>
-                                        <td>{element.first}</td>
-                                        <td>{element.last}</td>
-                                        <td>{element.handle}</td>
-                                    </tr>
-                                )
-                            })}
-                            <tr>
-                                <th scope="row">Sekdin</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </React.Fragment>
-            )
-        }
-
         Pages.Cek.IPDN = function (props) {
+            const informasiGigi = [
+                "Prothesa gigi depan (gigi seri atau gigi taring max 1 buah).",
+                "Gigi geraham yang hilang max 4 buah dan tidak hilang berurutan.",
+                "Tidak boleh memakai fixed orthodonti pada saat pemeriksaan kesehatan.",
+                "Tidak boleh adanya pewarnaan gigi yang berat.",
+                "Tidak boleh adanya hiperplasia dan hipoplasia gigi yang berat.",
+                "Tidak boleh gigi crowding berat.",
+                "Diastema max 3mm.",
+                "Openbite vertikal max 2mm. Overbite max 4mm.",
+                "Tidak dibolehkan gigi maloklusi (crossbite max 2 gigi, protrusif max 6mm dan progeni).",
+                "Tidak boleh ada gangren pulpa maupun caries profunda.",
+                "Gangren radix ditoleransi hanya 1 gigi dan harus segera diekstraksi.",
+                "Tidak boleh ada tumor di rongga mulut.",
+            ]
+
+            function Amnesia() {
+                return (
+                    <React.Fragment>
+                        <p>Tidak ada penyakit bawaan, anatomi tubuh normal, bekas luka atau laparatomi tidak mempengaruhi aktifitas masih ditolerir. Serta bebas dari penyakit </p>
+                        <Pages.Cek.Partials.ListInformasi data={["Varicoucle", "Asthma", "Hepatitis B", "Hernia"]} numbered={false} />
+                    </React.Fragment>
+                )
+            }
+
             const data = [
-                ["dasda", "dsad"]
+                ["Jurusan", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
+                ["Usia Saat Pembukaan", "Min 16 Max 21 (per Januari)"],
+                ["Tinggi Badan", "pria 160 cm dan wanita 155 cm"],
+                ["Gigi", <Pages.Cek.Partials.ListInformasi data={informasiGigi} numbered={true} />],
+                ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
+                ["Amnesia", <Amnesia />],
+                ["Ketentuan tambahan", ""]
             ]
             function Button2() {
                 return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Lanjutkan</button>
@@ -361,7 +384,7 @@
 
             return (
                 <React.Fragment>
-                    <Pages.Cek.Template title="PERSYARATAN IPDN" data={data} />
+                    <Pages.Cek.Partials.Table title="PERSYARATAN IPDN" data={data} />
                     <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                 </React.Fragment>
             )
