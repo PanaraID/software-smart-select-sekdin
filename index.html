@@ -67,6 +67,7 @@
 
             SelectInput: (props) => {
                 const id = randomID();
+                const selected = props.selected;
                 const options = props.options;
                 const onChange = props.onChange;
 
@@ -75,7 +76,7 @@
                         <select className="form-select" id={"inputGroupSelect" + id} onChange={onChange}>
                             <option >Pilih</option>
                             {options.map((data, index) => (
-                                <option value={data[0]} key={index}>{data[1]}</option>
+                                <option value={data[0]} key={index} selected={selected === data[0]}>{data[1]}</option>
                             ))}
                         </select>
                         <label className="input-group-text" htmlFor={"inputGroupSelect" + id}>{props.label}</label>
@@ -234,6 +235,7 @@
 
         Pages.CekKedinasanSekolah = function (props) {
             const setSekolah = props.setSekolah;
+            const selected = props.selected;
 
             function onChange(event) {
                 setSekolah(event.target.value);
@@ -266,7 +268,7 @@
                     <Partials.Header text="YUK CEK SEKOLAH KEDINASNAN MANA YANG TEPAT UNTUK KAMU" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
-                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} />
+                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} selected={selected} />
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
@@ -275,6 +277,7 @@
 
         Pages.ApakahKamuButaWarna = function (props) {
             const setButawarna = props.setButawarna;
+            const selected = props.selected;
 
             const options = [
                 ["Iya Buta Warna", "Iya Buta Warna"],
@@ -298,7 +301,7 @@
                 <div>
                     <Partials.Header text="YUK CEK SEKOLAH APAKAH KAMU BUTA WARNA?" />
 
-                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} />
+                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} selected={selected} />
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
@@ -428,6 +431,7 @@
 
         Pages.BerapaMinus = function (props) {
             const setMinus = props.setMinus;
+            const selected = props.selected;
 
             const options = [
                 ["Tidak Minus", "Tidak Minus"],
@@ -454,7 +458,7 @@
                 <div>
                     <Partials.Header text="YUK CEK TINGKAT MINUS MATA KAMU" />
 
-                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} />
+                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} selected={selected} />
 
                     <div className="d-flex justify-content-evenly">
                     </div>
@@ -700,10 +704,10 @@
                     {/* Konten halaman yang sedang aktif */}
                     <div className="mt-3 mb-3 p-4 container card" id="content">
                         {activePage === "home" && <Pages.Home showPage={showPage} />}
-                        {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} />}
+                        {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} selected={sekolah} />}
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
-                        {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} />}
-                        {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} />}
+                        {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} selected={butaWarna} />}
+                        {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} selected={minus} />}
 
                         {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
