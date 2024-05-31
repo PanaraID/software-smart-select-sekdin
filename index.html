@@ -514,13 +514,29 @@
         }
 
         Pages.Cek.STAN = function (props) {
+            
+            
+            const data = [
+                ["Sekdin", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
+                ["Usia Saat Pembukaan", "Min 14 max 21 tahun"],
+                ["Buta Warna", "Parsial"],
+                ["Minus", "Tidak ada"],
+                ["Silinder", "Tidak ada"],
+                ["SLTA", "SLTA/MA/SMK-sederajat"],
+                ["Jurusan", "Semua Jurusan"],
+                ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
+                ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
+                ["Amnesia", "Tidak ada penyakit bawaan"],
+                ["Ketentuan tambahan", ""]
+            ]
+
             function Button2() {
-                return <button onClick={() => props.showPage("hasil")} className="btn btn-primary">Lanjutkan</button>
+                return <button onClick={() => props.showPage("stan")} className="btn btn-primary">Lanjutkan</button>
             }
 
             return (
                 <React.Fragment>
-                    <Pages.Cek.Template title="PERSYARATAN IPDN" data={data} />
+                    <Pages.Cek.Partials.Table  title="PERSYARATAN IPDN" data={data} />
                     <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                 </React.Fragment>
             )
@@ -594,7 +610,7 @@
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
 
                         <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="STAN" />
-                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stan"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
             }
@@ -623,8 +639,8 @@
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} />}
-                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
 
+                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
 
