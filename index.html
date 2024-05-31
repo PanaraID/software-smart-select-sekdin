@@ -78,7 +78,7 @@
                     <select className="form-select" id={"inputGroupSelect" + id} onChange={onChange}>
                         <option >Pilih</option>
                         {options.map(data => (
-                            <option value={data[0]}>{data[1]}</option>
+                            <option value={data[0]} key={randomID()}>{data[1]}</option>
                         ))}
                     </select>
                     <label className="input-group-text" htmlFor={"inputGroupSelect" + id}>{props.label}</label>
