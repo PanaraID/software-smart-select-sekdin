@@ -118,6 +118,12 @@
                     <Partials.Header text="Aplikasi Pintar Pemilihan Sekolah Kedinasan" />
                     <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
 
+                    <div class="container">
+                        <h6>Untuk Tahap Pengembangan</h6>
+                        <button onClick={() => props.showPage("ipdn")}>IPDN</button>
+                        <button onClick={() => props.showPage("stan")}>STAN</button>
+                    </div>
+
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
             )
@@ -529,6 +535,16 @@
                     const page = props.page;
 
                     return <button onClick={() => showPage(page)} className="btn btn-primary">Kembali</button>
+                },
+                Footer: props => {
+                    return (
+                        <div class="alert alert-secondary" role="alert">
+                            <ul class="list-group">
+                                <li class="list-group-item">Untuk informasi lebih lanjut mengenai bimbingan belajar tersebut dapat mengunjungi laman website berikut ini</li>
+                                <li class="list-group-item">Anda juga dapat berkonsultasi dengan admin kami melalui kontak berikut ini</li>
+                            </ul>
+                        </div>
+                    )
                 }
             },
             IPDN: (props) => {
@@ -536,6 +552,19 @@
                     <React.Fragment>
                         <h6>Berdasarkan hasil yang Anda pilih, maka IPDN adalah salah satu yang tepat untuk Anda</h6>
                         <p>IPDN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 3 dari yang lainnya.</p>
+                        <Pages.Informasi.Partials.Footer />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
+            },
+
+            STAN: (props) => {
+                return (
+                    <React.Fragment>
+                        <h6>Berdasarkan hasil yang Anda pilih, maka IPDN adalah salah satu yang tepat untuk Anda</h6>
+                        <p>IPDN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 3 dari yang lainnya.</p>
+
+                        <Pages.Informasi.Partials.Footer />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
@@ -571,6 +600,7 @@
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
+                        {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
                     </div>
 
                     {/* Footer */}
