@@ -124,6 +124,7 @@
                         <p>Bagian ini akan saya hilangkan waktu production</p>
                         <button onClick={() => props.showPage("ipdn")}>IPDN</button>
                         <button onClick={() => props.showPage("stan")}>STAN</button>
+                        <button onClick={() => props.showPage("poltekip-poltekim")}>PoltekipPoltekim</button>
                     </div>
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
@@ -734,7 +735,7 @@
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
 
                         <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:46" persainganMasuk="STAN" />
-                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stan"} showPage={props.showPage} />} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-poltekip-poltekim"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
             }
@@ -771,6 +772,7 @@
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
+                        {activePage === "poltekip-poltekim" && <Pages.Informasi.PoltekipPoltekim showPage={showPage} />}
                     </div>
 
                     {/* Footer */}
