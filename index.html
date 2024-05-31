@@ -523,14 +523,18 @@
 
     <script type="text/babel">
         Pages.Informasi = {
-            IPDN: (props) => {
-                function Button1() {
-                    return <button onClick={() => props.showPage("cek-ipdn")} className="btn btn-primary">Kembali</button>
-                }
+            Partials: {
+                TombolKembali: props => {
+                    const showPage = props.showPage;
+                    const page = props.page;
 
+                    return <button onClick={() => showPage(page)} className="btn btn-primary">Kembali</button>
+                }
+            },
+            IPDN: (props) => {
                 return (
                     <React.Fragment>
-                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
             }
