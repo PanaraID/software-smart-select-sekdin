@@ -365,11 +365,23 @@
                     return result;
                 }
 
+                function checkPoltekipPoltekim() {
+                    let result = true;
+                    const blindEye = [
+                        "Tidak Minus"
+                    ];
+
+                    result &= "Tidak Buta Warna" === butaWarna ? true : false;
+                    result &= blindEye.includes(minus) ? true : false;
+
+                    return result;
+                }
+
                 return (
                     <React.Fragment>
                         {checkIPDN() ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
                         {checkSTAN() ? <ListItem title="STAN" page="cek-stan" /> : ""}
-                        <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
+                        {checkPoltekipPoltekim() ? <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" /> : ""}
                         <ListItem title="POLTEK SSN" page="cek-ssn" />
                         <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
                         <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
