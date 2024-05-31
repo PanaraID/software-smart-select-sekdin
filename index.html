@@ -230,18 +230,8 @@
         Pages.CekKedinasanSekolah = function (props) {
             const setSekolah = props.setSekolah;
 
-            // State untuk menyimpan nilai yang dipilih dari dropdown
-            const [selectedValue, setSelectedValue] = React.useState('');
-
-            // Function untuk menangani perubahan nilai pada dropdown
-            const onChange = (event) => {
-                setSelectedValue(event.target.value);
-            };
-
-            const onSubmit = () => {
-                console.log('Nilai yang dipilih:', selectedValue);
-                // Anda juga dapat mereset dropdown setelah pengiriman
-                setSekolah(selectedValue);
+            function onChange(event) {
+                setSekolah(event.target.value);
             };
 
             function Button1() {
@@ -249,14 +239,12 @@
             }
 
             function Button2() {
-                return <button onClick={() => {
-                    onSubmit();
-                    props.showPage("apakah-kamu-buta-warna");
-                }} className="btn btn-primary">Lanjutkan</button>
+                return <button onClick={() => props.showPage("apakah-kamu-buta-warna")} className="btn btn-primary">Lanjutkan</button>
             }
 
             const options = [
                 ["SMA", "SMA"],
+                ["SMK TEKNIK INFORMATIKA/KOMPUTER", "SMK TEKNIK INFORMATIKA/KOMPUTER"]
                 ["ANU", "ANU"]
             ]
 
