@@ -360,10 +360,15 @@
                     return result;
                 }
 
+                function checkSTAN() {
+                    let result = true;
+                    return result;
+                }
+
                 return (
                     <React.Fragment>
                         {checkIPDN() ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
-                        <ListItem title="STAN" page="cek-stan" />
+                        {checkSTAN() ? <ListItem title="STAN" page="cek-stan" /> : ""}
                         <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
                         <ListItem title="POLTEK SSN" page="cek-ssn" />
                         <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
