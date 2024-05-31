@@ -273,6 +273,18 @@
         }
 
         Pages.ApakahKamuButaWarna = function (props) {
+            const setButawarna = props.setButawarna;
+
+            const options = [
+                ["Buta Warna", "Buta Warna"],
+                ["Tidak Buta Warna", "Tidak Buta Warna"]
+            ];
+            
+
+            function onChange(event) {
+                setButawarna(event.target.value);
+            }
+
             function Button1() {
                 return <button onClick={() => props.showPage("cek-kedinasan-sekolah")} className="btn btn-primary">Kembali</button>
             }
@@ -284,7 +296,8 @@
             return (
                 <div>
                     <Partials.Header text="YUK CEK SEKOLAH APAKAH KAMU BUTA WARNA?" />
-                    <p>Tentukan Sekolah Kedinasan mu secara tepat dengan software rekomendasi ini !!!</p>
+
+                    <Partials.SelectInput label="Pilihan Sekolah" options={options} onChange={onChange} />
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
                 </div>
@@ -368,9 +381,8 @@
         Pages.Hasil = function (props) {
             const showPage = props.showPage;
             const sekolah = props.sekolah;
-
-            const apakahButaWarna = null;
-            const berapaMinus = null;
+            const butaWarna = props.butaWarna;
+            // const minus = props.minus;
 
             function ButtonCek(props) {
                 return <button onClick={() => showPage(props.page)} className="btn btn-primary">Cek</button>
@@ -400,7 +412,7 @@
                         </div>
                         <ul className="list-group">
                             <li className="list-group-item">{sekolah ? sekolah : "kosong"}</li>
-                            <li className="list-group-item">A second item</li>
+                            <li className="list-group-item">{butaWarna ? butaWarna : "Kosong"}</li>
                             <li className="list-group-item">A third item</li>
                         </ul>
                     </div>
@@ -444,6 +456,7 @@
             // State untuk menentukan halaman yang sedang aktif
             const [activePage, setActivePage] = React.useState("home");
             const [sekolah, setSekolah] = React.useState();
+            const [butaWarna, setButawarna] = React.useState();
 
             // Fungsi untuk menampilkan halaman yang dipilih
             const showPage = (page) => {
@@ -457,8 +470,8 @@
                         {activePage === "home" && <Pages.Home showPage={showPage} />}
                         {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} />}
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
-                        {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} />}
-                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} />}
+                        {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} />}
+                        {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} />}
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} />}
