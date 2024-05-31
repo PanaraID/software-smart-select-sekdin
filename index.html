@@ -247,10 +247,18 @@
             }
 
             const options = [
-                ["SMA", "SMA"],
+                ["SMA IPA", "SMA IPA"],
+                ["SMA IPS", "SMA IPS"],
+                ["SMA JURUSAN LAINNYA", "SMA JURUSAN LAINNYA"],
+                ["MA IPA", "MA IPA"],
+                ["MA IPS", "MA IPS"],
+                ["MA ILMU KEAGAMAAN", "MA ILMU KEAGAMAAN"],
+                ["MA BAHASA", "MA BAHASA"],
+                ["MA JURUSAN LAIN", "MA JURUSAN LAIN"],
                 ["SMK TEKNIK INFORMATIKA/KOMPUTER", "SMK TEKNIK INFORMATIKA/KOMPUTER"],
-                ["ANU", "ANU"]
-            ]
+                ["SMK TEKNIK ELEKTRONIKA", "SMK TEKNIK ELEKTRONIKA"],
+                ["SMK JURUSAN LAINNYA", "SMK JURUSAN LAINNYA"]
+            ];
 
             return (
                 <div>
@@ -514,8 +522,8 @@
         }
 
         Pages.Cek.STAN = function (props) {
-            
-            
+
+
             const data = [
                 ["Sekdin", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
                 ["Usia Saat Pembukaan", "Min 14 max 21 tahun"],
@@ -536,7 +544,7 @@
 
             return (
                 <React.Fragment>
-                    <Pages.Cek.Partials.Table  title="PERSYARATAN IPDN" data={data} />
+                    <Pages.Cek.Partials.Table title="PERSYARATAN IPDN" data={data} />
                     <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                 </React.Fragment>
             )
