@@ -540,6 +540,21 @@
                     const persainganMasuk = props.persainganMasuk;
                     return (
                         <React.Fragment>
+                            <div class="container card p-2 mb-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="button" className="btn btn-danger" disabled>Alert!!!</button>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <b><u>Tingkat persaingan 1:57</u></b>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <b>Cek perbandingan tingkat persaingan masuk Sekolah Kedinasan <button onClick={() => props.showPage("cek-kedinasan-sekolah")} className="btn btn-primary">Disini</button></b>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="alert alert-light" role="alert">
                                 <ul class="list-group">
                                     <li class="list-group-item">Maka dari itu, jika Anda adalah orang yang bekerja keras, fisik cukup bagus, nilai diatas rata - rata. Sekolah Kedinasan Poltekim adalah pilihan yang tepat</li>
@@ -565,7 +580,7 @@
                     <React.Fragment>
                         <h6>Berdasarkan hasil yang Anda pilih, maka IPDN adalah salah satu yang tepat untuk Anda</h6>
                         <p>IPDN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 3 dari yang lainnya.</p>
-                        <Pages.Informasi.Partials.Footer persainganMasuk="IPDN" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="IPDN" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
@@ -578,7 +593,7 @@
                         <p>STAN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 7 dari yang lainnya. </p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
 
-                        <Pages.Informasi.Partials.Footer persainganMasuk="STAN" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="STAN" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
