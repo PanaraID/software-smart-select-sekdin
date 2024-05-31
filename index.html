@@ -108,7 +108,7 @@
             }
 
             function Button2() {
-                return <button onClick={() => props.showPage("cek-ipdn")} className="btn btn-primary" type="button">Tes Buta Warna</button>
+                return <button onClick={() => props.showPage("tebak-karakter-buta-warna")} className="btn btn-primary" type="button">Tes Buta Warna</button>
             }
 
             return (
@@ -434,7 +434,14 @@
             function Result() {
                 return (
                     <React.Fragment>
-
+                        <ListItem title="IPDN" page="cek-ipdn" />
+                        <ListItem title="STAN" page="cek-stan" />
+                        <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
+                        <ListItem title="POLTEK SSN" page="cek-ssn" />
+                        <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
+                        <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
+                        <ListItem title="STMKG" page="cek-stmkg" />
+                        <ListItem title="STIN" page="cek-stin" />
                     </React.Fragment>
                 )
             }
@@ -458,17 +465,8 @@
                             Sekolah Kedinasan Yang Cocok Untuk Kamu
                         </div>
                         <ul className="list-group list-group-flush">
-                            {sekolah && butaWarna && minus ? (
-                                <React.Fragment>
-                                    <ListItem title="IPDN" page="cek-ipdn" />
-                                    <ListItem title="STAN" page="cek-stan" />
-                                    <ListItem title="POLTEKIP/POLTEKIM" page="cek-piltekip-poltekim" />
-                                    <ListItem title="POLTEK SSN" page="cek-ssn" />
-                                    <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
-                                    <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
-                                    <ListItem title="STMKG" page="cek-stmkg" />
-                                    <ListItem title="STIN" page="cek-stin" />
-                                </React.Fragment>
+                            {true ? (
+                                <Result />
                             ) : (
                                 <div className="alert alert-warning text-center" role="alert">
                                     <h6>Mohon Isi Semuanya</h6>
