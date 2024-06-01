@@ -850,6 +850,19 @@
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-poltekip-poltekim"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
+            },
+
+            STIS: props => {
+                return (
+                    <React.Fragment>
+                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka STIS adalah salah satu yang tepat untuk Anda" />
+                        <p>STIS ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 5 dari yang lainnya. </p>
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.01 % dan jumlah yang daftar adalah 24.913</p>
+
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:49" persainganMasuk="STIS" />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stan"} showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
             }
         }
     </script>
@@ -885,6 +898,7 @@
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
                         {activePage === "poltekip-poltekim" && <Pages.Informasi.PoltekipPoltekim showPage={showPage} />}
+                        {activePage === "stis" && <Pages.Informasi.STIS showPage={showPage} />}
                     </div>
 
                     <Partials.Footer />
