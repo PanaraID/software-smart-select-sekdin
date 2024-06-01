@@ -760,7 +760,7 @@
                     const title = props.title;
                     return (
                         <React.Fragment>
-                            <h6>{title ? title : "KOSONG"}</h6>
+                            <h6>{title ? "Berdasarkan hasil yang Anda pilih, maka " + IPDN + " adalah salah satu yang tepat untuk Anda" : "KOSONG"}</h6>
                             <hr />
                         </React.Fragment>
                     )
@@ -817,7 +817,7 @@
             IPDN: (props) => {
                 return (
                     <React.Fragment>
-                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka IPDN adalah salah satu yang tepat untuk Anda" />
+                        <Pages.Informasi.Partials.Header title="IPDN" />
                         <p>IPDN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 3 dari yang lainnya.</p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.63% dan jumlah yang daftar adalah 32.810</p>
                         <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:61" persainganMasuk="IPDN" />
@@ -829,7 +829,7 @@
             STAN: (props) => {
                 return (
                     <React.Fragment>
-                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka STAN adalah salah satu yang tepat untuk Anda" />
+                        <Pages.Informasi.Partials.Header title="STAN" />
                         <p>STAN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 7 dari yang lainnya. </p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
 
@@ -842,11 +842,11 @@
             PoltekipPoltekim: props => {
                 return (
                     <React.Fragment>
-                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka STAN adalah salah satu yang tepat untuk Anda" />
-                        <p>STAN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 7 dari yang lainnya. </p>
-                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
+                        <Pages.Informasi.Partials.Header title="Poltekim" />
+                        <p>Poltekim ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 4 dari yang lainnya. </p>
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.75 % dan jumlah yang daftar adalah 17.142</p>
 
-                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:46" persainganMasuk="STAN" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="Poltekim" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-poltekip-poltekim"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
