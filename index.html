@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -133,8 +133,6 @@
         }
 
         Pages.TebakKarakterButaWarna = function (props) {
-            // TODO membuat hingga 20
-            // TODO mengatur gambar
             const [questions] = React.useState([
                 { image: "1", answer: "X" },
                 { image: "2", answer: "Q" },
@@ -154,7 +152,7 @@
                     questionIndex: question.image,
                     correctAnswer: question.answer,
                     userAnswer: userAnswer.toUpperCase(),
-                    result: userAnswer.toUpperCase() === question.answer ? 'Correct' : 'Incorrect'
+                    result: userAnswer.toUpperCase() === question.answer ? 'Benar' : 'Salah'
                 };
                 setResults([...results, result]);
                 setUserAnswer('');
@@ -741,20 +739,17 @@
 
     <script type="text/babel">
         function App() {
-            // State untuk menentukan halaman yang sedang aktif
             const [activePage, setActivePage] = React.useState("home");
             const [sekolah, setSekolah] = React.useState();
             const [butaWarna, setButawarna] = React.useState();
             const [minus, setMinus] = React.useState();
 
-            // Fungsi untuk menampilkan halaman yang dipilih
             const showPage = (page) => {
                 setActivePage(page);
             };
 
             return (
                 <React.Fragment>
-                    {/* Konten halaman yang sedang aktif */}
                     <div className="mt-3 mb-3 p-4 container card" id="content">
                         {activePage === "home" && <Pages.Home showPage={showPage} />}
                         {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} selected={sekolah} />}
@@ -772,7 +767,6 @@
                         {activePage === "poltekip-poltekim" && <Pages.Informasi.PoltekipPoltekim showPage={showPage} />}
                     </div>
 
-                    {/* Footer */}
                     <Partials.Footer />
                 </React.Fragment>
             );
