@@ -541,7 +541,7 @@
             },
 
             IPDN: props => {
-                function Amnesia() {
+                function Anamnesa() {
                     return (
                         <React.Fragment>
                             <p>Tidak ada penyakit bawaan, anatomi tubuh normal, bekas luka atau laparatomi tidak mempengaruhi aktifitas masih ditolerir. Serta bebas dari penyakit </p>
@@ -556,7 +556,7 @@
                     ["Tinggi Badan", "pria 160 cm dan wanita 155 cm"],
                     ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
                     ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
-                    ["Amnesia", <Amnesia />],
+                    ["Anamnesa", <Anamnesa />],
                     ["Ketentuan tambahan", ""]
                 ]
                 function Button2() {
@@ -582,7 +582,7 @@
                     ["Jurusan", "Semua Jurusan"],
                     ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
                     ["Bekas Luka", Pages.Cek.FINAL.informasiBekasLuka],
-                    ["Amnesia", "Tidak ada penyakit bawaan"],
+                    ["Anamnesa", "Tidak ada penyakit bawaan"],
                     ["Ketentuan tambahan", ""]
                 ]
 
@@ -610,7 +610,7 @@
                     ["Tinggi Badan", "Pria 170 cm, perempuan 160 cm. BB Seimbang"],
                     ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
                     ["Bekas Luka", Pages.Cek.FINAL.informasiBekasLuka],
-                    ["Amnesia", "Tidak ada penyakit bawaan dan tidak dissabilitas"],
+                    ["Anamnesa", "Tidak ada penyakit bawaan dan tidak dissabilitas"],
                     ["Ketentuan tambahan", ""]
                 ]
 
@@ -625,7 +625,7 @@
                     ["Tinggi Badan", "Pria 170 cm, perempuan 160 cm. BB Seimbang"],
                     ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
                     ["Bekas Luka", Pages.Cek.FINAL.informasiBekasLuka],
-                    ["Amnesia", "Tidak ada penyakit bawaan dan tidak dissabilitas"],
+                    ["Anamnesa", "Tidak ada penyakit bawaan dan tidak dissabilitas"],
                     ["Ketentuan tambahan", ""]
                 ]
 
@@ -681,7 +681,7 @@
                     ["Tinggi Badan", "Pria : 160 cm, Wanita : 15 cm"],
                     ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
                     ["Bekas Luka", Pages.Cek.FINAL.informasiBekasLuka],
-                    ["Amnesia", "Tidak cacat fisik dan mental, serta tidak memiliki penyakit bawaan dan/atau menular yang dapat mengganggu proses belajar"],
+                    ["Anamnesa", "Tidak cacat fisik dan mental, serta tidak memiliki penyakit bawaan dan/atau menular yang dapat mengganggu proses belajar"],
                     ["Ketentuan tambahan", ""]
                 ]
 
@@ -705,7 +705,7 @@
                     ["Tinggi Badan", "Pria 165cm dan wanita minimal 160 cm"],
                     ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
                     ["Bekas Luka", "Masih ditolerir jika tidak menghambat dan mempengaruhi estetika. Tidak boleh Verises"],
-                    ["Amnesia", "Tidak ada anamnesis dan penyakit yang mengharuskan konsumsi obat rutin"],
+                    ["Anamnesa", "Tidak ada anamnesis dan penyakit yang mengharuskan konsumsi obat rutin"],
                     ["Ketentuan tambahan", "*Jurusan SMK sesuai dengan Prodi yang dibuka saat itu. IPS untuk prodi Menejemen Transportasi Perairan Daratan (Poltrans SDP), Manajemen Logistik (POLTRADA), Ketatalaksanaan Angkutan Laut dan Kepelabuhanan (STIP jkt), Tatalaksana Angkutan Laut dan Kepelabuhan (PIP Semarang), Ketatalaksanaan Angkutan Laut dan Kepelabuhanan (PIP Makassar), Transportasi Laut (poltekpel), Operasi Bandar Udara; Pertolongan Kecelakaan Pesawat; Penerangan Aeronautika (PPI Curug), Manajemen Transportasi Udara (Poltekbang, Operasi Pesawat Udara (poltekbang banyuwangi), enyelamatan dan Pemadam Kebakaran Penerbangan (poltekbang palembang)"]
                 ]
 
@@ -725,17 +725,17 @@
 
             CekSTIS: props => {
                 const data = [
-                    ["Sekdin", "Kemenhub"],
-                    ["Usia Saat Pembukaan", "Min 16 tahun max 23 tahun"],
+                    ["Sekdin", "STIS"],
+                    ["Usia Saat Pembukaan", "Min 16 Max 22"],
                     ["Buta Warna", "Tidak boleh"],
-                    ["Minus", "0 D"],
-                    ["Silinder", "0 D"],
-                    ["SLTA", "SMA/SMK*"],
-                    ["Jurusan", "IPA dan jurusan IPS/ SMK sesuai prodi yang dibuka"],
-                    ["Tinggi Badan", "Pria 165cm dan wanita minimal 160 cm"],
-                    ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
-                    ["Bekas Luka", "Masih ditolerir jika tidak menghambat dan mempengaruhi estetika. Tidak boleh Verises"],
-                    ["Amnesia", "Tidak ada anamnesis dan penyakit yang mengharuskan konsumsi obat rutin"],
+                    ["Minus", "< 6 D"],
+                    ["Silinder", "< 6 D"],
+                    ["SLTA", "SMA/MA atau SMK/MAK"],
+                    ["Jurusan", "Bidang Keahlian Teknologi Informasi*"],
+                    ["Tinggi Badan", "Tidak ada kualifikasi"],
+                    ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
+                    ["Bekas Luka", Pages.Cek.FINAL.informasiBekasLuka],
+                    ["Anamnesa", "Tidak ada penyakit bawaan"],
                     ["Ketentuan tambahan", "*Rekayasa Perangkat Lunak, Pengembangan Gim, Sistem Informasi Jaringan dan Aplikasi, Teknik Komputer dan Jaringan, Teknik Jaringan Akses Telekomunikasi, Teknik Transmisi Telekomunikasi"]
                 ]
 
