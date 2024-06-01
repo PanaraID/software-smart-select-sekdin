@@ -127,6 +127,7 @@
                         <button onClick={() => props.showPage("poltekip-poltekim")}>PoltekipPoltekim</button>
                         <button onClick={() => props.showPage("cek-poltek-ssn")}>Cek Poltek SSN</button>
                         <button onClick={() => props.showPage("cek-kemenhub")}>Cek Kemenhub</button>
+                        <button onClick={() => props.showPage("cek-stis")}>Cek STIS</button>
                     </div>
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
@@ -747,6 +748,34 @@
                         <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
+            },
+
+            CekSTIS: props => {
+                const data = [
+                    ["Sekdin", "Kemenhub"],
+                    ["Usia Saat Pembukaan", "Min 16 tahun max 23 tahun"],
+                    ["Buta Warna", "Tidak boleh"],
+                    ["Minus", "0 D"],
+                    ["Silinder", "0 D"],
+                    ["SLTA", "SMA/SMK*"],
+                    ["Jurusan", "IPA dan jurusan IPS/ SMK sesuai prodi yang dibuka"],
+                    ["Tinggi Badan", "Pria 165cm dan wanita minimal 160 cm"],
+                    ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
+                    ["Bekas Luka", "Masih ditolerir jika tidak menghambat dan mempengaruhi estetika. Tidak boleh Verises"],
+                    ["Amnesia", "Tidak ada anamnesis dan penyakit yang mengharuskan konsumsi obat rutin"],
+                    ["Ketentuan tambahan", "*Rekayasa Perangkat Lunak, Pengembangan Gim, Sistem Informasi Jaringan dan Aplikasi, Teknik Komputer dan Jaringan, Teknik Jaringan Akses Telekomunikasi, Teknik Transmisi Telekomunikasi"]
+                ]
+
+                function Button2() {
+                    return <button onClick={() => props.showPage("stis")} className="btn btn-primary">Lanjutkan</button>
+                }
+
+                return (
+                    <React.Fragment>
+                        <Pages.Cek.Partials.Table title="PERSYARATAN STIS" data={data} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
+                    </React.Fragment>
+                )
             }
         }
     </script>
@@ -878,6 +907,7 @@
                         {activePage === "cek-poltekip-poltekim" && <Pages.Cek.PoltekipPoltekim showPage={showPage} />}
                         {activePage === "cek-poltek-ssn" && <Pages.Cek.PoltekSSN showPage={showPage} />}
                         {activePage === "cek-kemenhub" && <Pages.Cek.CekKemenhub showPage={showPage} />}
+                        {activePage === "cek-stis" && <Pages.Cek.CekSTIS showPage={showPage} />}
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
