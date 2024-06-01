@@ -126,6 +126,7 @@
                         <button onClick={() => props.showPage("stan")}>STAN</button>
                         <button onClick={() => props.showPage("poltekip-poltekim")}>PoltekipPoltekim</button>
                         <button onClick={() => props.showPage("cek-poltek-ssn")}>Cek Poltek SSN</button>
+                        <button onClick={() => props.showPage("cek-kemenhub")}>Cek Kemenhub</button>
                     </div>
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
@@ -689,6 +690,63 @@
                         <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
                     </React.Fragment>
                 )
+            },
+
+            CekKemenhub: props => {
+                const informasiJurusan = [
+                    "SMA Jurusan IPA",
+                    "Madrasah Aliyah Jurusan IPA",
+                    (() => (
+                        <React.Fragment>
+                            SMK Teknik Elektronika
+                            <ul>
+                                <li>Teknik Audio Video</li>
+                                <li>Teknik Elektronika Industri</li>
+                                <li>Teknik Mekatronika</li>
+                                <li>Teknik Elektronika Daya dan Komunikasi</li>
+                            </ul>
+                        </React.Fragment>
+                    ))(),
+                    (() => (
+                        <React.Fragment>
+                            SMK TI bidang keahlian Teknologi Informasi dan Komunikasi
+                            <ul>
+                                <li>Rekayasa Perangkat Lunak</li>
+                                <li>Teknik Komputer dan Jaringan </li>
+                                <li>Teknik Mekatronika</li>
+                                <li>Sistem Informatika, Jaringan dan Aplikasi</li>
+                            </ul>
+                        </React.Fragment>
+                    ))()
+                ];
+
+                const data = [
+                    ["Sekdin", "Kemenhub"],
+                    ["Usia Saat Pembukaan", "Min 16 tahun max 23 tahun"],
+                    ["Buta Warna", "Tidak boleh"],
+                    ["Minus", "0 D"],
+                    ["Silinder", "0 D"],
+                    ["SLTA", "SMA/SMK*"],
+                    ["Jurusan", "IPA dan jurusan IPS/ SMK sesuai prodi yang dibuka"],
+                    ["Tinggi Badan", "Pria 165cm dan wanita minimal 160 cm"],
+                    ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
+                    ["Bekas Luka", "Masih ditolerir jika tidak menghambat dan mempengaruhi estetika. Tidak boleh Verises"],
+                    ["Amnesia", "Tidak ada anamnesis dan penyakit yang mengharuskan konsumsi obat rutin"],
+                    ["Ketentuan tambahan", "*Jurusan SMK sesuai dengan Prodi yang dibuka saat itu. IPS untuk prodi Menejemen Transportasi Perairan Daratan (Poltrans SDP), Manajemen Logistik (POLTRADA), Ketatalaksanaan Angkutan Laut dan Kepelabuhanan (STIP jkt), Tatalaksana Angkutan Laut dan Kepelabuhan (PIP Semarang), Ketatalaksanaan Angkutan Laut dan Kepelabuhanan (PIP Makassar), Transportasi Laut (poltekpel), Operasi Bandar Udara; Pertolongan Kecelakaan Pesawat; Penerangan Aeronautika (PPI Curug), Manajemen Transportasi Udara (Poltekbang, Operasi Pesawat Udara (poltekbang banyuwangi), enyelamatan dan Pemadam Kebakaran Penerbangan (poltekbang palembang)"]
+                ]
+
+                // TODO: di spreadsheet ada button ini cuman tidak disetting
+                function Button2() {
+                    // return <button onClick={() => props.showPage("kemenhub")} className="btn btn-primary">Lanjutkan</button>
+                    return <button onClick={() => alert("Tidak disetting, karena di spreadsheet tidak tertera")} className="btn btn-primary">Lanjutkan</button>
+                }
+
+                return (
+                    <React.Fragment>
+                        <Pages.Cek.Partials.Table title="PERSYARATAN KEMENHUB" data={data} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
+                    </React.Fragment>
+                )
             }
         }
     </script>
@@ -819,6 +877,7 @@
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
                         {activePage === "cek-poltekip-poltekim" && <Pages.Cek.PoltekipPoltekim showPage={showPage} />}
                         {activePage === "cek-poltek-ssn" && <Pages.Cek.PoltekSSN showPage={showPage} />}
+                        {activePage === "cek-kemenhub" && <Pages.Cek.CekKemenhub showPage={showPage} />}
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
