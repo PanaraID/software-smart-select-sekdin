@@ -314,9 +314,9 @@
 
         Pages.Hasil = function (props) {
             const showPage = props.showPage;
-            const sekolah = props.sekolah;
-            const butaWarna = props.butaWarna;
-            const minus = props.minus;
+            const sekolah = props.sekolah || "Pilih";
+            const butaWarna = props.butaWarna  || "Pilih";
+            const minus = props.minus  || "Pilih";
 
             function ButtonCek(props) {
                 return <button onClick={() => showPage(props.page)} className="btn btn-primary">Cek</button>
@@ -434,6 +434,36 @@
                     return result;
                 }
 
+                function checkkSTMKG() {
+                    let result = true;
+                    // TODO nanti ini akan dihapus sebab untuk mempermudah sekali
+                    // karena semua sekolah mendukung ipdn 
+                    const schools = [
+                        "SMA IPA",
+                        "SMA IPS",
+                        "SMA JURUSAN LAINNYA",
+                        "MA IPA",
+                        "MA IPS",
+                        "MA ILMU KEAGAMAAN",
+                        "MA BAHASA",
+                        "MA JURUSAN LAIN",
+                        "SMK TEKNIK INFORMATIKA/KOMPUTER",
+                        "SMK TEKNIK ELEKTRONIKA",
+                        "SMK JURUSAN LAINNYA"
+                    ];
+                    const blindEye = [
+                        "Tidak Minus",
+                        "Minus < 1",
+                        "Minus 1 - 4"
+                    ];
+
+                    result &= schools.includes(sekolah) ? true : false;
+                    result &= "Tidak Buta Warna" === butaWarna ? true : false;
+                    result &= blindEye.includes(minus) ? true : false;
+
+                    return result;
+                }
+
                 return (
                     <React.Fragment>
                         {checkIPDN() ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
@@ -448,10 +478,8 @@
                 )
             }
 
-            let boolean = sekolah && butaWarna && minus;
-            boolean &= !sekolah.includes("Pilih");
-            boolean &= !butaWarna.includes("Pilih");
-            boolean &= !minus.includes("Pilih");
+            let boolean = (sekolah && butaWarna && minus) 
+            && (!sekolah.includes("Pilih") && !butaWarna.includes("Pilih") && !minus.includes("Pilih"));
 
             return (
                 <div>
@@ -615,7 +643,7 @@
                     ["Tinggi Badan", "pria 160 cm dan wanita 155 cm"],
                     ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
                     ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
-                    ["Anamnesa", <Anamnesa />],                    ["Ketentuan tambahan", ""]
+                    ["Anamnesa", <Anamnesa />], ["Ketentuan tambahan", ""]
                 ]
                 function Button2() {
                     return <button onClick={() => props.showPage("ipdn")} className="btn btn-primary">Lanjutkan</button>
@@ -824,7 +852,7 @@
                     ["Anamnesa", "Tidak ada penyakit bawaan"],
                     ["Ketentuan tambahan", "Bersedia lasik dengan biaya sendiri jika diterima"]
                 ]
-                
+
                 // TODO Tidak ada tombol lanjutkan
 
                 return (
