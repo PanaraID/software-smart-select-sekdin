@@ -345,27 +345,11 @@
             function Result() {
                 function checkIPDN() {
                     let result = true;
-                    // TODO nanti ini akan dihapus sebab untuk mempermudah sekali
-                    // karena semua sekolah mendukung ipdn 
-                    const schools = [
-                        "SMA IPA",
-                        "SMA IPS",
-                        "SMA JURUSAN LAINNYA",
-                        "MA IPA",
-                        "MA IPS",
-                        "MA ILMU KEAGAMAAN",
-                        "MA BAHASA",
-                        "MA JURUSAN LAIN",
-                        "SMK TEKNIK INFORMATIKA/KOMPUTER",
-                        "SMK TEKNIK ELEKTRONIKA",
-                        "SMK JURUSAN LAINNYA"
-                    ];
                     const blindEye = [
                         "Tidak Minus",
                         "Minus < 1"
                     ];
 
-                    result &= schools.includes(sekolah) ? true : false;
                     result &= "Tidak Buta Warna" === butaWarna ? true : false;
                     result &= blindEye.includes(minus) ? true : false;
 
