@@ -774,6 +774,32 @@
                         <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
                     </React.Fragment>
                 )
+            },
+
+            STIN: props => {
+                const data = [
+                    ["Sekdin", "STIN"],
+                    ["Usia Saat Pembukaan", "Min 16 Max 21"],
+                    ["Buta Warna", "Tidak boleh"],
+                    ["Minus", "1 D"],
+                    ["Silinder", "0"],
+                    ["SLTA", "SMA/SMK/MA (bukan lulusan paket C)"],
+                    ["Jurusan", "Semua Jurusan"],
+                    ["Tinggi Badan", "Laki-laki: 165 cm perempuan: 160 cm (bb seimbang)"],
+                    ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
+                    ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan, tidak pernah mengalami patah tulang"],
+                    ["Anamnesa", "Tidak ada penyakit bawaan dan tidak dissabilitas"],
+                    ["Ketentuan tambahan", ""]
+                ]
+                
+                // TODO Tidak ada tombol lanjutkan
+
+                return (
+                    <React.Fragment>
+                        <Pages.Cek.Partials.Table title="PERSYARATAN STMKG" data={data} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
             }
         }
     </script>
@@ -920,6 +946,7 @@
                         {activePage === "cek-kemenhub" && <Pages.Cek.CekKemenhub showPage={showPage} />}
                         {activePage === "cek-stis" && <Pages.Cek.CekSTIS showPage={showPage} />}
                         {activePage === "cek-stmkg" && <Pages.Cek.CekSTMKG showPage={showPage} />}
+                        {activePage === "cek-stin" && <Pages.Cek.STIN showPage={showPage} />}
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
