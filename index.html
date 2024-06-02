@@ -124,12 +124,12 @@
                         <p>Bagian ini akan saya hilangkan waktu production</p>
                         <button onClick={() => props.showPage("ipdn")}>IPDN</button>
                         <button onClick={() => props.showPage("stan")}>STAN</button>
-                        <button onClick={() => props.showPage("cek-poltekip-poltekim")}>PoltekipPoltekim</button>
-                        <button onClick={() => props.showPage("cek-poltek-ssn")}>Cek Poltek SSN</button>
-                        <button onClick={() => props.showPage("cek-kemenhub")}>Cek Kemenhub</button>
-                        <button onClick={() => props.showPage("cek-stmkg")}>Cek STMKG</button>
-                        <button onClick={() => props.showPage("cek-stis")}>Cek STIS</button>
-                        <button onClick={() => props.showPage("cek-stin")}>Cek STIN</button>
+                        <button onClick={() => props.showPage("poltekip-poltekim")}>PoltekipPoltekim</button>
+                        <button onClick={() => props.showPage("poltek-ssn")}>Cek Poltek SSN</button>
+                        <button onClick={() => props.showPage("kemenhub")}>Cek Kemenhub</button>
+                        <button onClick={() => props.showPage("stmkg")}>Cek STMKG</button>
+                        <button onClick={() => props.showPage("stis")}>Cek STIS</button>
+                        <button onClick={() => props.showPage("poltekip-poltekim")}>Cek STIN</button>
                     </div>
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
@@ -657,7 +657,7 @@
 
             STAN: props => {
                 const data = [
-                    ["Sekdin", "Semua Jurusan (asalkan berijazah SMA dan MA)"],
+                    ["Sekdin", "STAN"],
                     ["Usia Saat Pembukaan", "Min 14 max 21 tahun"],
                     ["Buta Warna", "Parsial"],
                     ["Minus", "Tidak ada"],
@@ -676,7 +676,7 @@
 
                 return (
                     <React.Fragment>
-                        <Pages.Cek.Partials.Table title="PERSYARATAN IPDN" data={data} />
+                        <Pages.Cek.Partials.Table title="PERSYARATAN STAN" data={data} />
                         <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
@@ -851,12 +851,14 @@
                     ["Ketentuan tambahan", "Bersedia lasik dengan biaya sendiri jika diterima"]
                 ]
 
-                // TODO Tidak ada tombol lanjutkan
+                function Button2() {
+                    return <button onClick={() => props.showPage("stmkg")} className="btn btn-primary">Lanjutkan</button>
+                }
 
                 return (
                     <React.Fragment>
                         <Pages.Cek.Partials.Table title="PERSYARATAN STMKG" data={data} />
-                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
             },
@@ -965,6 +967,7 @@
             },
 
             STAN: (props) => {
+                console.log(props)
                 return (
                     <React.Fragment>
                         <Pages.Informasi.Partials.Header title="STAN" />
@@ -1037,6 +1040,7 @@
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
+                        {activePage === "stmkg" && <Pages.Informasi.STMKG showPage={showPage} />}
                         {activePage === "poltekip-poltekim" && <Pages.Informasi.PoltekipPoltekim showPage={showPage} />}
                         {activePage === "stis" && <Pages.Informasi.STIS showPage={showPage} />}
                     </div>
