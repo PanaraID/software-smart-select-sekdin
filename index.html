@@ -980,6 +980,20 @@
                 )
             },
 
+            STMKG: (props) => {
+                console.log(props)
+                return (
+                    <React.Fragment>
+                        <Pages.Informasi.Partials.Header title="STMKG" />
+                        <p>STMKG ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 7 dari yang lainnya. </p>
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
+
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:46" persainganMasuk="STAN" />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stmkg"} showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
+            },
+
             PoltekipPoltekim: props => {
                 return (
                     <React.Fragment>
@@ -1048,9 +1062,12 @@
             // IPDN oke
             // STAN oke
             // POLTEKIP POLTEKIM oke
-            
+            // STIS oke
+
             // SSN informasinya belum
             // Kemenhub informasinya belum
+            // STMKG informasinya belum
+            // STIN itu merujuk ke poltekim
 
             return (
                 <React.Fragment>
