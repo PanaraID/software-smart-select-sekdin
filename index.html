@@ -791,13 +791,15 @@
                     ["Anamnesa", "Tidak ada penyakit bawaan dan tidak dissabilitas"],
                     ["Ketentuan tambahan", ""]
                 ]
-                
-                // TODO Tidak ada tombol lanjutkan
+
+                function Button2() {
+                    return <button onClick={() => props.showPage("poltekim")} className="btn btn-primary">Poltekim</button>
+                }
 
                 return (
                     <React.Fragment>
                         <Pages.Cek.Partials.Table title="PERSYARATAN STMKG" data={data} />
-                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
             }
