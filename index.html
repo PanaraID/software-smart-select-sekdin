@@ -382,12 +382,30 @@
                     return result;
                 }
 
+                function checkSSN() {
+                    let result = true;
+                    const schools = [
+                        "SMA IPA",
+                        "MA IPA"
+                    ];
+                    const blindEye = [
+                        "Tidak Minus",
+                        "Minus < 1"
+                    ];
+
+                    result &= schools.includes(sekolah) ? true : false;
+                    result &= "Tidak Buta Warna" === butaWarna ? true : false;
+                    result &= blindEye.includes(minus) ? true : false;
+
+                    return result;
+                }
+
                 return (
                     <React.Fragment>
                         {checkIPDN() ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
                         {checkSTAN() ? <ListItem title="STAN" page="cek-stan" /> : ""}
                         {checkPoltekipPoltekim() ? <ListItem title="POLTEKIP/POLTEKIM" page="cek-poltekip-poltekim" /> : ""}
-                        <ListItem title="POLTEK SSN" page="cek-ssn" />
+                        {checkSSN ? <ListItem title="POLTEK SSN" page="cek-ssn" /> : ""}
                         <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
                         <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
                         <ListItem title="STMKG" page="cek-stmkg" />
