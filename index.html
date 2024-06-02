@@ -74,7 +74,7 @@
                 return (
                     <div className="input-group mb-3">
                         <select className="form-select" id={"inputGroupSelect" + id} onChange={onChange}>
-                            <option >Pilih</option>
+                            <option value="Pilih" key="default">Mohon Pilih</option>
                             {options.map((data, index) => (
                                 <option value={data[0]} key={index} selected={selected === data[0]}>{data[1]}</option>
                             ))}
@@ -448,6 +448,11 @@
                 )
             }
 
+            let boolean = sekolah && butaWarna && minus;
+            boolean &= !sekolah.includes("Pilih");
+            boolean &= !butaWarna.includes("Pilih");
+            boolean &= !minus.includes("Pilih");
+
             return (
                 <div>
                     <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
@@ -467,7 +472,7 @@
                             Sekolah Kedinasan Yang Cocok Untuk Kamu
                         </div>
                         <ul className="list-group list-group-flush">
-                            {sekolah && butaWarna && minus ? (
+                            {boolean ? (
                                 <Result />
                             ) : (
                                 <div className="alert alert-warning text-center" role="alert">
