@@ -340,6 +340,8 @@
             function Result() {
                 function checkIPDN() {
                     let result = true;
+                    // TODO nanti ini akan dihapus sebab untuk mempermudah sekali
+                    // karena semua sekolah mendukung ipdn 
                     const schools = [
                         "SMA IPA",
                         "SMA IPS",
@@ -400,13 +402,26 @@
                     return result;
                 }
 
+                function checkKemenhub() {
+                    let result = true;
+                    const blindEye = [
+                        "Tidak Minus",
+                        "Minus < 1"
+                    ];
+
+                    result &= "Tidak Buta Warna" === butaWarna ? true : false;
+                    result &= blindEye.includes(minus) ? true : false;
+
+                    return result;
+                }
+
                 return (
                     <React.Fragment>
                         {checkIPDN() ? <ListItem title="IPDN" page="cek-ipdn" /> : ""}
                         {checkSTAN() ? <ListItem title="STAN" page="cek-stan" /> : ""}
                         {checkPoltekipPoltekim() ? <ListItem title="POLTEKIP/POLTEKIM" page="cek-poltekip-poltekim" /> : ""}
-                        {checkSSN ? <ListItem title="POLTEK SSN" page="cek-ssn" /> : ""}
-                        <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" />
+                        {checkSSN() ? <ListItem title="POLTEK SSN" page="cek-ssn" /> : ""}
+                        {checkKemenhub() ? <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" /> : ""}
                         <ListItem title="POLSTAT STIS" page="cek-polstat-stis" />
                         <ListItem title="STMKG" page="cek-stmkg" />
                         <ListItem title="STIN" page="cek-stin" />
