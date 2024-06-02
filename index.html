@@ -127,7 +127,9 @@
                         <button onClick={() => props.showPage("cek-poltekip-poltekim")}>PoltekipPoltekim</button>
                         <button onClick={() => props.showPage("cek-poltek-ssn")}>Cek Poltek SSN</button>
                         <button onClick={() => props.showPage("cek-kemenhub")}>Cek Kemenhub</button>
+                        <button onClick={() => props.showPage("cek-stmkg")}>Cek STMKG</button>
                         <button onClick={() => props.showPage("cek-stis")}>Cek STIS</button>
+                        <button onClick={() => props.showPage("cek-stin")}>Cek STIN</button>
                     </div>
 
                     <Partials.ButtonGroup Button1={() => <Button1 />} Button2={() => <Button2 />} />
@@ -692,7 +694,7 @@
                 )
             },
 
-            CekKemenhub: props => {
+            KEMENHUB: props => {
                 const data = [
                     ["Sekdin", "Kemenhub"],
                     ["Usia Saat Pembukaan", "Min 16 tahun max 23 tahun"],
@@ -722,7 +724,7 @@
                 )
             },
 
-            CekSTIS: props => {
+            STIS: props => {
                 const data = [
                     ["Sekdin", "STIS"],
                     ["Usia Saat Pembukaan", "Min 16 Max 22"],
@@ -750,7 +752,7 @@
                 )
             },
 
-            CekSTMKG: props => {
+            STMKG: props => {
                 const data = [
                     ["Sekdin", "STMKG"],
                     ["Usia Saat Pembukaan", "Min 15, max 23 tahun"],
@@ -798,7 +800,7 @@
 
                 return (
                     <React.Fragment>
-                        <Pages.Cek.Partials.Table title="PERSYARATAN STMKG" data={data} />
+                        <Pages.Cek.Partials.Table title="PERSYARATAN STIN" data={data} />
                         <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
@@ -945,9 +947,9 @@
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
                         {activePage === "cek-poltekip-poltekim" && <Pages.Cek.PoltekipPoltekim showPage={showPage} />}
                         {activePage === "cek-poltek-ssn" && <Pages.Cek.PoltekSSN showPage={showPage} />}
-                        {activePage === "cek-kemenhub" && <Pages.Cek.CekKemenhub showPage={showPage} />}
-                        {activePage === "cek-stis" && <Pages.Cek.CekSTIS showPage={showPage} />}
-                        {activePage === "cek-stmkg" && <Pages.Cek.CekSTMKG showPage={showPage} />}
+                        {activePage === "cek-kemenhub" && <Pages.Cek.KEMENHUB showPage={showPage} />}
+                        {activePage === "cek-stis" && <Pages.Cek.STIS showPage={showPage} />}
+                        {activePage === "cek-stmkg" && <Pages.Cek.STMKG showPage={showPage} />}
                         {activePage === "cek-stin" && <Pages.Cek.STIN showPage={showPage} />}
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
