@@ -748,6 +748,32 @@
                         <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
+            },
+
+            CekSTMKG: props => {
+                const data = [
+                    ["Sekdin", "STMKG"],
+                    ["Usia Saat Pembukaan", "Min 15, max 23 tahun"],
+                    ["Buta Warna", "Tidak boleh"],
+                    ["Minus", "4 D*"],
+                    ["Silinder", "2 D*"],
+                    ["SLTA", "SMA/MA/SMK"],
+                    ["Jurusan", "Semua Jurusan"],
+                    ["Tinggi Badan", "160 cm (pria), 155 cm (wanita)"],
+                    ["Gigi", "Tidak ada persyaratan tertulis terkait gigi (asalkan tidak menghambat dan mempengaruhi)"],
+                    ["Bekas Luka", Pages.Cek.FINAL.informasiBekasLuka],
+                    ["Anamnesa", "Tidak ada penyakit bawaan"],
+                    ["Ketentuan tambahan", "Bersedia lasik dengan biaya sendiri jika diterima"]
+                ]
+                
+                // TODO Tidak ada tombol lanjutkan
+
+                return (
+                    <React.Fragment>
+                        <Pages.Cek.Partials.Table title="PERSYARATAN STMKG" data={data} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
             }
         }
     </script>
@@ -893,6 +919,7 @@
                         {activePage === "cek-poltek-ssn" && <Pages.Cek.PoltekSSN showPage={showPage} />}
                         {activePage === "cek-kemenhub" && <Pages.Cek.CekKemenhub showPage={showPage} />}
                         {activePage === "cek-stis" && <Pages.Cek.CekSTIS showPage={showPage} />}
+                        {activePage === "cek-stmkg" && <Pages.Cek.CekSTMKG showPage={showPage} />}
 
                         {activePage === "ipdn" && <Pages.Informasi.IPDN showPage={showPage} />}
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
