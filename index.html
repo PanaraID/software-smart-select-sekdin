@@ -1000,8 +1000,21 @@
                         <p>SSN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 4 dari yang lainnya. </p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.75 % dan jumlah yang daftar adalah 17.142</p>
 
-                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="Poltekim" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="SSN" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-poltek-ssn"} showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
+            },
+
+            Kemenhub: props => {
+                return (
+                    <React.Fragment>
+                        <Pages.Informasi.Partials.Header title="Kemenhub" />
+                        <p>SSN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 4 dari yang lainnya. </p>
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.75 % dan jumlah yang daftar adalah 17.142</p>
+
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="Kemenhub" />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-kemenhub"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
             },
@@ -1032,6 +1045,13 @@
                 setActivePage(page);
             };
 
+            // IPDN oke
+            // STAN oke
+            // POLTEKIP POLTEKIM oke
+            
+            // SSN informasinya belum
+            // Kemenhub informasinya belum
+
             return (
                 <React.Fragment>
                     <div className="mt-3 mb-3 p-4 container card" id="content">
@@ -1040,7 +1060,7 @@
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} selected={butaWarna} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} selected={minus} />}
-
+                        
                         {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
@@ -1056,6 +1076,7 @@
                         {activePage === "stmkg" && <Pages.Informasi.STMKG showPage={showPage} />}
                         {activePage === "poltekip-poltekim" && <Pages.Informasi.PoltekipPoltekim showPage={showPage} />}
                         {activePage === "poltek-ssn" && <Pages.Informasi.SSN showPage={showPage} />}
+                        {activePage === "kemenhub" && <Pages.Informasi.Kemenhub showPage={showPage} />}
                         {activePage === "stis" && <Pages.Informasi.STIS showPage={showPage} />}
                     </div>
 
