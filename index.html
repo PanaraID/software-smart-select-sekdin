@@ -436,28 +436,25 @@
 
                 function checkkSTMKG() {
                     let result = true;
-                    // TODO nanti ini akan dihapus sebab untuk mempermudah sekali
-                    // karena semua sekolah mendukung ipdn 
-                    const schools = [
-                        "SMA IPA",
-                        "SMA IPS",
-                        "SMA JURUSAN LAINNYA",
-                        "MA IPA",
-                        "MA IPS",
-                        "MA ILMU KEAGAMAAN",
-                        "MA BAHASA",
-                        "MA JURUSAN LAIN",
-                        "SMK TEKNIK INFORMATIKA/KOMPUTER",
-                        "SMK TEKNIK ELEKTRONIKA",
-                        "SMK JURUSAN LAINNYA"
-                    ];
                     const blindEye = [
                         "Tidak Minus",
                         "Minus < 1",
                         "Minus 1 - 4"
                     ];
 
-                    result &= schools.includes(sekolah) ? true : false;
+                    result &= "Tidak Buta Warna" === butaWarna ? true : false;
+                    result &= blindEye.includes(minus) ? true : false;
+
+                    return result;
+                }
+
+                function checkSTIN() {
+                    let result = true;
+                    const blindEye = [
+                        "Tidak Minus",
+                        "Minus < 1",
+                    ];
+
                     result &= "Tidak Buta Warna" === butaWarna ? true : false;
                     result &= blindEye.includes(minus) ? true : false;
 
@@ -472,8 +469,8 @@
                         {checkSSN() ? <ListItem title="POLTEK SSN" page="cek-ssn" /> : ""}
                         {checkKemenhub() ? <ListItem title="SEKDIN KEMENHUB" page="cek-kemenhub" /> : ""}
                         {checkSTIS() ? <ListItem title="POLSTAT STIS" page="cek-polstat-stis" /> : ""}
-                        <ListItem title="STMKG" page="cek-stmkg" />
-                        <ListItem title="STIN" page="cek-stin" />
+                        {checkkSTMKG() ? <ListItem title="STMKG" page="cek-stmkg" /> : ""}
+                        {checkSTIN() ? <ListItem title="STIN" page="cek-stin" /> : ""}
                     </React.Fragment>
                 )
             }
