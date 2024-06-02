@@ -124,7 +124,7 @@
                         <p>Bagian ini akan saya hilangkan waktu production</p>
                         <button onClick={() => props.showPage("ipdn")}>IPDN</button>
                         <button onClick={() => props.showPage("stan")}>STAN</button>
-                        <button onClick={() => props.showPage("poltekip-poltekim")}>PoltekipPoltekim</button>
+                        <button onClick={() => props.showPage("cek-poltekip-poltekim")}>PoltekipPoltekim</button>
                         <button onClick={() => props.showPage("cek-poltek-ssn")}>Cek Poltek SSN</button>
                         <button onClick={() => props.showPage("cek-kemenhub")}>Cek Kemenhub</button>
                         <button onClick={() => props.showPage("cek-stis")}>Cek STIS</button>
@@ -556,8 +556,7 @@
                     ["Tinggi Badan", "pria 160 cm dan wanita 155 cm"],
                     ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
                     ["Bekas Luka", "Asalkan tidak memengaruhi kesehatan secara signifikan atau ada komplikasi yang berkelanjutan"],
-                    ["Anamnesa", <Anamnesa />],
-                    ["Ketentuan tambahan", ""]
+                    ["Anamnesa", <Anamnesa />],                    ["Ketentuan tambahan", ""]
                 ]
                 function Button2() {
                     return <button onClick={() => props.showPage("ipdn")} className="btn btn-primary">Lanjutkan</button>
@@ -630,7 +629,7 @@
                 ]
 
                 function Button2() {
-                    return <button onClick={() => props.showPage("stan")} className="btn btn-primary">Lanjutkan</button>
+                    return <button onClick={() => props.showPage("poltekip-poltekim")} className="btn btn-primary">Lanjutkan</button>
                 }
 
                 return (
@@ -760,7 +759,7 @@
                     const title = props.title;
                     return (
                         <React.Fragment>
-                            <h6>{title ? "Berdasarkan hasil yang Anda pilih, maka " + IPDN + " adalah salah satu yang tepat untuk Anda" : "KOSONG"}</h6>
+                            <h6>{title ? "Berdasarkan hasil yang Anda pilih, maka " + title + " adalah salah satu yang tepat untuk Anda" : "KOSONG"}</h6>
                             <hr />
                         </React.Fragment>
                     )
@@ -823,7 +822,7 @@
                         <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:61" persainganMasuk="IPDN" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-ipdn"} showPage={props.showPage} />} />
                     </React.Fragment>
-                )
+                
             },
 
             STAN: (props) => {
@@ -855,7 +854,7 @@
             STIS: props => {
                 return (
                     <React.Fragment>
-                        <Pages.Informasi.Partials.Header title="Berdasarkan hasil yang Anda pilih, maka STIS adalah salah satu yang tepat untuk Anda" />
+                        <Pages.Informasi.Partials.Header title="STIS" />
                         <p>STIS ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 5 dari yang lainnya. </p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.01 % dan jumlah yang daftar adalah 24.913</p>
 
