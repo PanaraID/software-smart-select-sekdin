@@ -993,6 +993,19 @@
                 )
             },
 
+            SSN: props => {
+                return (
+                    <React.Fragment>
+                        <Pages.Informasi.Partials.Header title="SSN" />
+                        <p>SSN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 4 dari yang lainnya. </p>
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.75 % dan jumlah yang daftar adalah 17.142</p>
+
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="Poltekim" />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-poltek-ssn"} showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
+            },
+
             STIS: props => {
                 return (
                     <React.Fragment>
@@ -1042,6 +1055,7 @@
                         {activePage === "stan" && <Pages.Informasi.STAN showPage={showPage} />}
                         {activePage === "stmkg" && <Pages.Informasi.STMKG showPage={showPage} />}
                         {activePage === "poltekip-poltekim" && <Pages.Informasi.PoltekipPoltekim showPage={showPage} />}
+                        {activePage === "poltek-ssn" && <Pages.Informasi.SSN showPage={showPage} />}
                         {activePage === "stis" && <Pages.Informasi.STIS showPage={showPage} />}
                     </div>
 
