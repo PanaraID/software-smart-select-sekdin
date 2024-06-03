@@ -1011,7 +1011,7 @@
                 return (
                     <React.Fragment>
                         <Pages.Informasi.Partials.Header title="Kemenhub" />
-                        <p>SSN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 4 dari yang lainnya. </p>
+                        <p>Kemenhub ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 4 dari yang lainnya. </p>
                         <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 1.75 % dan jumlah yang daftar adalah 17.142</p>
 
                         <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="Kemenhub" />
@@ -1029,6 +1029,19 @@
 
                         <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:49" persainganMasuk="STIS" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stan"} showPage={props.showPage} />} />
+                    </React.Fragment>
+                )
+            },
+
+            STIN: props => {
+                return (
+                    <React.Fragment>
+                        <Pages.Informasi.Partials.Header title="STIN" />
+                        <p>STIN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi No 5 dari yang lainnya. </p>
+                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.01 % dan jumlah yang daftar adalah 24.913</p>
+
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:49" persainganMasuk="STIN" />
+                        <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stin"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
             }
@@ -1054,7 +1067,7 @@
             // SSN informasinya belum
             // Kemenhub informasinya belum
             // STMKG informasinya belum
-            // STIN itu merujuk ke poltekim
+            // STIN informasinya belum
 
             return (
                 <React.Fragment>
@@ -1066,6 +1079,7 @@
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} selected={minus} />}
                         
                         {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
+                        
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
                         {activePage === "cek-poltekip-poltekim" && <Pages.Cek.PoltekipPoltekim showPage={showPage} />}
@@ -1082,6 +1096,7 @@
                         {activePage === "poltek-ssn" && <Pages.Informasi.SSN showPage={showPage} />}
                         {activePage === "kemenhub" && <Pages.Informasi.Kemenhub showPage={showPage} />}
                         {activePage === "stis" && <Pages.Informasi.STIS showPage={showPage} />}
+                        {activePage === "stin" && <Pages.Informasi.STIN showPage={showPage} />}
                     </div>
 
                     <Partials.Footer />
