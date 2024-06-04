@@ -125,28 +125,40 @@
         }
 
         Pages.TebakKarakterButaWarna = function (props) {
-            const [questions] = React.useState([
-                { image: "1", answer: "X" },
-                { image: "2", answer: "Q" },
-                { image: "3", answer: "99" },
-                { image: "4", answer: "9" },
-                { image: "5", answer: "62" },
-                { image: "6", answer: "98" },
-                { image: "7", answer: "3" },
-                { image: "8", answer: "2" },
-                { image: "9", answer: "60" },
-                { image: "10", answer: "2" },
-                { image: "11", answer: "4" },
-                { image: "12", answer: "8" },
-                { image: "13", answer: "3" },
-                { image: "14", answer: "5" },
-                { image: "15", answer: "1" },
-                { image: "16", answer: "9" },
-                { image: "17", answer: "6" },
-                { image: "18", answer: "15" },
-                { image: "19", answer: "3" },
-                { image: "20", answer: "0" },
-            ]);
+            function aFunction() {
+                const data = [
+                    { image: "1", answer: "X" },
+                    { image: "2", answer: "Q" },
+                    { image: "3", answer: "99" },
+                    { image: "4", answer: "9" },
+                    { image: "5", answer: "62" },
+                    { image: "6", answer: "98" },
+                    { image: "7", answer: "3" },
+                    { image: "8", answer: "2" },
+                    { image: "9", answer: "60" },
+                    { image: "10", answer: "2" },
+                    { image: "11", answer: "4" },
+                    { image: "12", answer: "8" },
+                    { image: "13", answer: "3" },
+                    { image: "14", answer: "5" },
+                    { image: "15", answer: "1" },
+                    { image: "16", answer: "9" },
+                    { image: "17", answer: "6" },
+                    { image: "18", answer: "15" },
+                    { image: "19", answer: "3" },
+                    { image: "20", answer: "0" },
+                ];
+
+                let result = data
+                    .map(value => ({ value, sort: Math.random() }))
+                    .sort((a, b) => a.sort - b.sort)
+                    .map(({ value }) => value);
+
+                result = result.slice(0, 6);
+                return result;
+            }
+
+            const [questions] = React.useState(aFunction());
 
             const [results, setResults] = React.useState([]);
             const [currentQuestion, setCurrentQuestion] = React.useState(0);
