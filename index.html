@@ -320,8 +320,8 @@
         Pages.Hasil = function (props) {
             const showPage = props.showPage;
             const sekolah = props.sekolah || "Pilih";
-            const butaWarna = props.butaWarna  || "Pilih";
-            const minus = props.minus  || "Pilih";
+            const butaWarna = props.butaWarna || "Pilih";
+            const minus = props.minus || "Pilih";
 
             function ButtonCek(props) {
                 return <button onClick={() => showPage(props.page)} className="btn btn-primary">Cek</button>
@@ -465,8 +465,8 @@
                 )
             }
 
-            let boolean = (sekolah && butaWarna && minus) 
-            && (!sekolah.includes("Pilih") && !butaWarna.includes("Pilih") && !minus.includes("Pilih"));
+            let boolean = (sekolah && butaWarna && minus)
+                && (!sekolah.includes("Pilih") && !butaWarna.includes("Pilih") && !minus.includes("Pilih"));
 
             return (
                 <div>
@@ -915,7 +915,9 @@
                                     </div>
 
                                     <div className="col-sm-4">
-                                        <b><u>Tingkat persaingan {tingkatPersaingan ? tingkatPersaingan : "KOSONG"}</u></b>
+                                        {tingkatPersaingan && (
+                                            <b><u>Tingkat persaingan {tingkatPersaingan}</u></b>
+                                        )}
                                     </div>
 
                                     <div className="col-sm-4">
@@ -973,9 +975,8 @@
                     <React.Fragment>
                         <Pages.Informasi.Partials.Header title="STMKG" />
                         <p>STMKG ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi</p>
-                        <p>Tingkat persentase kelolosan pada seleksi 2023 yaitu sebesar 2.15 % dan jumlah yang daftar adalah 51.136</p>
 
-                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:46" persainganMasuk="STAN" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="STMKG" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stmkg"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
@@ -1000,7 +1001,7 @@
                         <Pages.Informasi.Partials.Header title="SSN" />
                         <p>SSN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi </p>
 
-                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="SSN" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="SSN" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-poltek-ssn"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
@@ -1012,7 +1013,7 @@
                         <Pages.Informasi.Partials.Header title="Kemenhub" />
                         <p>Kemenhub ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi </p>
 
-                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:57" persainganMasuk="Kemenhub" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="Kemenhub" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-kemenhub"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
@@ -1037,7 +1038,7 @@
                         <Pages.Informasi.Partials.Header title="STIN" />
                         <p>STIN ini merupakan salah satu Sekolah Kedinasan dengan tingkat persaingan tertinggi</p>
 
-                        <Pages.Informasi.Partials.Footer showPage={props.showPage} tingkatPersaingan="1:49" persainganMasuk="STIN" />
+                        <Pages.Informasi.Partials.Footer showPage={props.showPage} persainganMasuk="STIN" />
                         <Partials.ButtonGroup Button1={() => <Pages.Informasi.Partials.TombolKembali page={"cek-stin"} showPage={props.showPage} />} />
                     </React.Fragment>
                 )
@@ -1061,10 +1062,11 @@
             // POLTEKIP POLTEKIM oke
             // STIS oke
 
+            // Untuk bagian ini informasinya tidak selengkap di atas
             // SSN informasinya belum
             // Kemenhub informasinya belum
             // STMKG informasinya belum
-            // STIN informasinya belum
+            // STIN oke
 
             return (
                 <React.Fragment>
@@ -1074,9 +1076,9 @@
                         {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
                         {activePage === "apakah-kamu-buta-warna" && <Pages.ApakahKamuButaWarna showPage={showPage} setButawarna={setButawarna} selected={butaWarna} />}
                         {activePage === "berapa-minus" && <Pages.BerapaMinus showPage={showPage} setMinus={setMinus} selected={minus} />}
-                        
+
                         {activePage === "hasil" && <Pages.Hasil showPage={showPage} sekolah={sekolah} butaWarna={butaWarna} minus={minus} />}
-                        
+
                         {activePage === "cek-ipdn" && <Pages.Cek.IPDN showPage={showPage} />}
                         {activePage === "cek-stan" && <Pages.Cek.STAN showPage={showPage} />}
                         {activePage === "cek-poltekip-poltekim" && <Pages.Cek.PoltekipPoltekim showPage={showPage} />}
