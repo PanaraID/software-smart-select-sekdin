@@ -766,10 +766,14 @@
                     ["Ketentuan tambahan", ""]
                 ]
 
+                function Button2() {
+                    return <button onClick={() => props.showPage("poltek-ssn")} className="btn btn-primary">Lanjutkan</button>
+                }
+
                 return (
                     <React.Fragment>
                         <Pages.Cek.Partials.Table title="Persyaratan Poltek SSN" data={data} />
-                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} />
+                        <Partials.ButtonGroup Button1={() => <Pages.Cek.Partials.TombolKembali showPage={props.showPage} />} Button2={() => <Button2 />} />
                     </React.Fragment>
                 )
             },
