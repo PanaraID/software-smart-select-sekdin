@@ -365,7 +365,6 @@
                 }
 
                 function checkSTAN() {
-                    // STAN itu semua masuk
                     let result = true;
                     return result;
                 }
@@ -967,7 +966,8 @@
                     )
                 }
             },
-            IPDN: (props) => {
+
+            IPDN: props => {
                 return (
                     <React.Fragment>
                         <Pages.Informasi.Partials.Header title="IPDN" />
@@ -979,7 +979,7 @@
                 )
             },
 
-            STAN: (props) => {
+            STAN: props => {
                 return (
                     <React.Fragment>
                         <Pages.Informasi.Partials.Header title="STAN" />
@@ -992,7 +992,7 @@
                 )
             },
 
-            STMKG: (props) => {
+            STMKG: props => {
                 return (
                     <React.Fragment>
                         <Pages.Informasi.Partials.Header title="STMKG" />
@@ -1078,17 +1078,6 @@
             const showPage = (page) => {
                 setActivePage(page);
             };
-
-            // IPDN oke
-            // STAN oke
-            // POLTEKIP POLTEKIM oke
-            // STIS oke
-
-            // Untuk bagian ini informasinya tidak selengkap di atas
-            // SSN informasinya belum
-            // Kemenhub informasinya belum
-            // STMKG informasinya belum
-            // STIN oke
 
             return (
                 <React.Fragment>
