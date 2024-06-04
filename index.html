@@ -551,6 +551,19 @@
         Pages.TabelSekdin = function (props) {
             const beforePage = props.beforePage ? props.beforePage : "home";
 
+            const data = [
+                ["Poltekip", "15020", "225", "1:67", "1,50%"],
+                ["PPI Madiun", "6289", "96", "1:66", "1,53%"],
+                ["IPDN", "32810", "534", "1:61", "1,63%"],
+                ["Poltekim", "17142", "300", "1:57", "1,75%"],
+                ["STIS", "24913", "500", "1:49", "2,01%"],
+                ["Poltrans - SDP Palembang", "3957", "85", "1:47", "2,15%"],
+                ["STAN", "51136", "1100", "1:46", "2,15%"],
+                ["Poltek SSN", "4598", "125", "1:37", "2,72%"],
+                ["PTDI-STTD", "14500", "408", "1:36", "2,81%"],
+                ["STIN,", "13106", "400", "1:33", "3,05%"]
+            ];
+
             function Button1() {
                 return <button onClick={() => props.showPage(beforePage)} className="btn btn-primary">Kembali</button>
             }
@@ -562,7 +575,7 @@
                             <span>10 Top Sekolah Kedinasan Dengan Tingkat Persaingan Tertinggi</span>
                             <hr />
                             <span>Pada Seleksi Masuk Tahun 2023</span>
-                            </React.Fragment>
+                        </React.Fragment>
                     ))()} />
                     <table className="table table-striped">
                         <thead>
@@ -571,26 +584,21 @@
                                 <th scope="col">Sekolah Kedinasan</th>
                                 <th scope="col">Jumlah Pendaftar</th>
                                 <th scope="col">Kuota</th>
+                                <th scope="col">Persentase Lolos</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                            {data.map((element, index) => {
+                                return (
+                                    <tr>
+                                        <th scope="row">{index + 1}</th>
+                                        <td>{element[0]}</td>
+                                        <td>{element[1]}</td>
+                                        <td>{element[2]}</td>
+                                        <td>{element[3]}</td>
+                                    </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
 
