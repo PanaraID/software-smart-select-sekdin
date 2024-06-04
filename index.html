@@ -547,6 +547,50 @@
                 </div>
             )
         }
+
+        Pages.TabelSekdin = function (props) {
+            const beforePage = props.beforePage ? props.beforePage : "home";
+
+            function Button1() {
+                return <button onClick={() => props.showPage(beforePage)} className="btn btn-primary">Kembali</button>
+            }
+
+            return (
+                <React.Fragment>
+                    <table className="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Sekolah Kedinasan</th>
+                                <th scope="col">Jumlah Pendaftar</th>
+                                <th scope="col">Kuota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <Partials.ButtonGroup Button1={() => <Button1 />} />
+                </React.Fragment>
+            )
+        }
     </script>
 
     <script type="text/babel">
@@ -930,7 +974,7 @@
                                     </div>
 
                                     <div className="col-sm-4">
-                                        <b>Cek perbandingan tingkat persaingan masuk Sekolah Kedinasan <button onClick={() => props.showPage("home")} className="btn btn-primary">Disini</button></b>
+                                        <b>Cek perbandingan tingkat persaingan masuk Sekolah Kedinasan <button onClick={() => props.showPage("tabel-sekdin")} className="btn btn-primary">Disini</button></b>
                                     </div>
                                 </div>
                             </div>
@@ -942,7 +986,7 @@
                                     <li className="list-group-item">
                                         <span>Cek fasilitas bimbingan belajar jika kalian memilih</span>
                                         <a href="https://panara.id" class="btn btn-secondary">Program VIP Online</a>
-                                        </li>
+                                    </li>
                                     <li className="list-group-item">
                                         <span>Apabila ingin bergabung pada paket di atas atau melihat perbandingannya dengan paket bimbel lainnya</span>
                                         <a href="https://panara.id" class="btn btn-info">https://panara.id</a>
@@ -1071,11 +1115,13 @@
     <script type="text/babel">
         function App() {
             const [activePage, setActivePage] = React.useState("home");
+            const [beforePage, setBeforePage] = React.useState("home");
             const [sekolah, setSekolah] = React.useState();
             const [butaWarna, setButawarna] = React.useState();
             const [minus, setMinus] = React.useState();
 
             const showPage = (page) => {
+                setBeforePage(activePage);
                 setActivePage(page);
             };
 
@@ -1107,6 +1153,8 @@
                         {activePage === "kemenhub" && <Pages.Informasi.Kemenhub showPage={showPage} />}
                         {activePage === "stis" && <Pages.Informasi.STIS showPage={showPage} />}
                         {activePage === "stin" && <Pages.Informasi.STIN showPage={showPage} />}
+
+                        {activePage === "tabel-sekdin" && <Pages.TabelSekdin showPage={showPage} beforePage={beforePage} />}
                     </div>
 
                     <Partials.Footer />
