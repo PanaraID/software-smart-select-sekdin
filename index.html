@@ -1129,13 +1129,21 @@
 
     <script type="text/babel">
         function App() {
-            const [activePage, setActivePage] = React.useState("home");
-            const [beforePage, setBeforePage] = React.useState(activePage);
-            const [sekolah, setSekolah] = React.useState();
-            const [butaWarna, setButawarna] = React.useState();
-            const [minus, setMinus] = React.useState();
+            const [activePage, setActivePage] = React.useState(() => localStorage.getItem("active-page") || "home");
+            const [beforePage, setBeforePage] = React.useState(() => localStorage.getItem("before-page") || activePage);
+            const [sekolah, setSekolah] = React.useState(() => localStorage.getItem("sekolah"));
+            const [butaWarna, setButawarna] = React.useState(() => localStorage.getItem("buta-warna"));
+            const [minus, setMinus] = React.useState(() => localStorage.getItem("minus"));
 
-            const showPage = (page) => {
+            React.useEffect(() => {
+                localStorage.setItem("active-page", activePage);
+                localStorage.setItem("before-page", beforePage)
+                localStorage.setItem("sekolah", sekolah);
+                localStorage.setItem("buta-warna", butaWarna);
+                localStorage.setItem("minus", minus);
+            }, [activePage, beforePage, sekolah, butaWarna, minus]);
+
+            const showPage = page => {
                 setBeforePage(activePage);
                 setActivePage(page);
             };
