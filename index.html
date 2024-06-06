@@ -485,6 +485,7 @@
                 }
 
                 const boolean = (sekolah && butaWarna && minus)
+                    && (!sekolah.includes("null") && !butaWarna.includes("null") && !minus.includes("null"))
                     && (!sekolah.includes("Pilih") && !butaWarna.includes("Pilih") && !minus.includes("Pilih"));
 
                 return (
