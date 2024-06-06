@@ -563,16 +563,16 @@
                 const beforePage = props.beforePage ? props.beforePage : "home";
 
                 const data = [
-                    ["Poltekip", "15020", "225", "1:67", "1,50%"],
-                    ["PPI Madiun", "6289", "96", "1:66", "1,53%"],
-                    ["IPDN", "32810", "534", "1:61", "1,63%"],
-                    ["Poltekim", "17142", "300", "1:57", "1,75%"],
-                    ["STIS", "24913", "500", "1:49", "2,01%"],
-                    ["Poltrans - SDP Palembang", "3957", "85", "1:47", "2,15%"],
-                    ["STAN", "51136", "1100", "1:46", "2,15%"],
-                    ["Poltek SSN", "4598", "125", "1:37", "2,72%"],
-                    ["PTDI-STTD", "14500", "408", "1:36", "2,81%"],
-                    ["STIN,", "13106", "400", "1:33", "3,05%"]
+                    ["Poltekip", "225", "12.576", "1:55"],
+                    ["PPI Madiun", "6289", "96", "1:66"],
+                    ["IPDN", "32810", "534", "1:61"],
+                    ["Poltekim", "17142", "300", "1:57"],
+                    ["STIS", "24913", "500", "1:49"],
+                    ["Poltrans - SDP Palembang", "3957", "85", "1:47"],
+                    ["STAN", "51136", "1100", "1:46"],
+                    ["Poltek SSN", "4598", "125", "1:37"],
+                    ["PTDI-STTD", "14500", "408", "1:36"],
+                    ["STIN,", "13106", "400", "1:33"]
                 ];
 
                 function Button1() {
@@ -593,20 +593,19 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Sekolah Kedinasan</th>
-                                    <th scope="col">Jumlah Pendaftar</th>
                                     <th scope="col">Kuota</th>
-                                    <th scope="col">Persentase Lolos</th>
+                                    <th scope="col">Jumlah Pendaftar</th>
+                                    <th scope="col">Rasio</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {data.map((element, index) => {
                                     return (
-                                        <tr>
+                                        <tr key={index}>
                                             <th scope="row">{index + 1}</th>
                                             <td>{element[0]}</td>
                                             <td>{element[1]}</td>
                                             <td>{element[2]}</td>
-                                            <td>{element[3]}</td>
                                         </tr>
                                     )
                                 })}
