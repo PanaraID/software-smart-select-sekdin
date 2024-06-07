@@ -563,16 +563,15 @@
                 const beforePage = props.beforePage ? props.beforePage : "home";
 
                 const data = [
-                    ["Poltekip", "225", "12.576", "1:55"],
-                    ["PPI Madiun", "6289", "96", "1:66"],
-                    ["IPDN", "32810", "534", "1:61"],
-                    ["Poltekim", "17142", "300", "1:57"],
-                    ["STIS", "24913", "500", "1:49"],
-                    ["Poltrans - SDP Palembang", "3957", "85", "1:47"],
-                    ["STAN", "51136", "1100", "1:46"],
-                    ["Poltek SSN", "4598", "125", "1:37"],
-                    ["PTDI-STTD", "14500", "408", "1:36"],
-                    ["STIN,", "13106", "400", "1:33"]
+                    ["Poltekip", "225", "12.576", "1:55", "1,79%"],
+                    ["IPDN", "534", "29.132", "1:54", "1,83%"],
+                    ["Polstat STIS", "500", "24.322", "1:48", "2,06%"],
+                    ["Poltekim", "300", "14.424", "1:48", "2,08%"],
+                    ["PKN STAN", "1.100", "46.986", "1:42", "2,34%"],
+                    ["STIN", "400", "12.761", "1:32", "3,13%"],
+                    ["Poltek SSN", "125", "3.996", "1:31", "3,13%"],
+                    ["Sekdin Kemenhub", "1.408", "40.214", "1:28", "3,50%"],
+                    ["STMKG", "80", "1.283", "1:16", "6,24%"]
                 ];
 
                 function Button1() {
@@ -596,6 +595,7 @@
                                     <th scope="col">Kuota</th>
                                     <th scope="col">Jumlah Pendaftar</th>
                                     <th scope="col">Rasio</th>
+                                    <th scope="col">Persentase Kelolosan</th>  
                                 </tr>
                             </thead>
                             <tbody>
@@ -603,9 +603,9 @@
                                     return (
                                         <tr key={index}>
                                             <th scope="row">{index + 1}</th>
-                                            <td>{element[0]}</td>
-                                            <td>{element[1]}</td>
-                                            <td>{element[2]}</td>
+                                            {element.map((e, i) => {
+                                                return <td key={i}>{e}</td>
+                                            })}
                                         </tr>
                                     )
                                 })}
@@ -1013,7 +1013,7 @@
                                     </li>
                                     <li className="list-group-item">
                                         <span>Apabila ingin bergabung pada paket di atas atau melihat perbandingannya dengan paket bimbel lainnya</span>
-                                        <a href="https://panara.id" className="btn btn-info">https://panara.id</a>
+                                        <a href="https://panaracourse.web.id" className="btn btn-info">https://panaracourse.web.id</a>
                                     </li>
                                 </ul>
                             </div>
