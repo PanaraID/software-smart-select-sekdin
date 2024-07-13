@@ -4,8 +4,8 @@
 IPA (aman)
 IPDN (aman)
 
-STAN (Usia Min 14 max 22 per 1 oktober)
-Poltekim/kip (Usia Min 17 Max 23 per 15 Mei)
+STAN (Usia Min 14 max 22 per 1 oktober) (OKE)
+Poltekim/kip (Usia Min 17 Max 23 per 15 Mei) (OKE)
 Poltek SSN (Min 17 max 21 per 31 Desember)
 Jurusan Poltek SSN:
 - Teknik Mekatronika diganti Teknik Robotik (Bagian SMK Teknik Elektronika)
@@ -24,7 +24,7 @@ STMKG (usia benar tinggal tambahin per 1 september)
 STIN (Usia bener tinggal tambahain per 31 desember)
 Plus/mata dekat tidak boleh lebih dari 1D
 
-###List Mata Minus###
+###List Mata Minus###  #FIXME
 - yang kategori kurang dari 1 D kayak IPDN, Kemenhub itu dihapus dari hasil list karena ketentuannya 0D (mata normal)
 - yang kategori 1 -4 sekdin kemenhub hapus dari daftar
 - yang kategori 4 - 6 sekdin kemenhub hapus dari daftar
