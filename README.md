@@ -1,4 +1,8 @@
 # Software Smart Select Sekdin
+Fun fact aja, ini adalah project pertama saya menggunakan ReactJS,
+
+Dan pasti akan melihat ada beberapa yang tidak efisien,
+jadi yaa maafkanlah, hehehehe.
 
 # Update
 IPA (aman)
