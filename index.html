@@ -879,9 +879,15 @@
         STIS: props => {
           const data = [
             ["Sekdin", "STIS"],
-            ["Usia Saat Pembukaan", "Min 16 Max 22"],
+            ["Usia Saat Pembukaan", "Min 16 Max 22 tahun per 1 September"],
             ["Buta Warna", "Tidak boleh"],
-            ["Minus", "< 6 D"],
+            ["Minus",
+              <div>
+                <span>&#60; 6 D</span>
+                <br />
+                <span>Rabun dekat (plus) tidak lebih dari 6 D</span>
+              </div>
+            ],
             ["Silinder", "< 6 D"],
             ["SLTA", "SMA/MA atau SMK/MAK"],
             ["Jurusan", "Bidang Keahlian Teknologi Informasi*"],

@@ -25,6 +25,7 @@ Ketentuan Tambahan Poltek SSN:Bersedia menyerahkan sertifikat hasil UTBK-SNBT ta
 Sekdin Kemenhub (Usia Min 16 Max 23 per 1 September)
 Tinggi badan (Tinggi min Pria 160 cm wanita min 155 cm; Khusus untuk Program Studi D-III PKP/OBU/MBU/MTU, pria minimal 165 cm dan wanita minimal 160 cm)
 
+(OKE)
 STIS (usia Min 16 tahun Max 22 tahun per 1 september)
 Tambahan Rabun dekat (plus) tidak lebih dari 6D
 
