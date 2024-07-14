@@ -27,14 +27,14 @@ Tinggi badan (Tinggi min Pria 160 cm wanita min 155 cm; Khusus untuk Program Stu
 
 (OKE)
 STIS (usia Min 16 tahun Max 22 tahun per 1 september)
-Tambahan Rabun dekat (plus) tidak lebih dari 6D #TODO
+Tambahan Rabun dekat (plus) tidak lebih dari 6D
 
 (OKE)
 STMKG (usia benar tinggal tambahin per 1 september)
 
 (OKE)
 STIN (Usia bener tinggal tambahain per 31 desember)
-Plus/mata dekat tidak boleh lebih dari 1D #TODO
+Plus/mata dekat tidak boleh lebih dari 1D
 
 ###List Mata Minus###  #FIXME
 - yang kategori kurang dari 1 D kayak IPDN, Kemenhub itu dihapus dari hasil list karena ketentuannya 0D (mata normal) (OKE)
@@ -42,16 +42,17 @@ Plus/mata dekat tidak boleh lebih dari 1D #TODO
 - yang kategori 4 - 6 sekdin kemenhub hapus dari daftar
 - yang kategori lebih dari 6 sekdin kemenhub
 
-#IPS (list aman) tapi ada beberapa tambahan: (OKE)
+(OKE)
+#IPS (list aman) tapi ada beberapa tambahan:
 - bagian STIS di kolom jurusan tambahin "Lulusan SMA/MA semua jurusan. Lulusan SMK/MAk Bidang Leahlian Teknologi Informasi"
 
-#FIXME
+(oke)
 #SMA Jurusan lain tambahin STIS (karena di ket pengumumannya STIS SMA/MA dan SMK/MAK bidang keahlian TI)
 
 #MA IPA list Aman
 #MA IPS list aman
 #MA Bahasa tambahin STIS (OKE)
-#SMK semuanya Hapus IPDN # FIXME
+#SMK semuanya Hapus IPDN (OKE)
 #SMK TEKNIK INFORMATIKA/KOMPUTER tambahin Poltek SSN (OKE)
 #SMK TEKNIK ELEKTRONIKA TAMBAHIN POLTEK SSN (OKE)
 
