@@ -34,9 +34,10 @@ Plus/mata dekat tidak boleh lebih dari 1D
 - yang kategori 4 - 6 sekdin kemenhub hapus dari daftar
 - yang kategori lebih dari 6 sekdin kemenhub
 
-#IPS (list aman) tapi ada beberapa tambahan:
+#IPS (list aman) tapi ada beberapa tambahan: (OKE)
 - bagian STIS di kolom jurusan tambahin "Lulusan SMA/MA semua jurusan. Lulusan SMK/MAk Bidang Leahlian Teknologi Informasi"
 
+#FIXME
 #SMA Jurusan lain tambahin STIS (karena di ket pengumumannya STIS SMA/MA dan SMK/MAK bidang keahlian TI)
 
 #MA IPA list Aman
