@@ -21,6 +21,7 @@ Jurusan Poltek SSN:
 Tinggi Badan Poltek SSN: Pria Min 160 cm Wanita min 150 cm
 Ketentuan Tambahan Poltek SSN:Bersedia menyerahkan sertifikat hasil UTBK-SNBT tahun sebelumnya ATAU tahun ini
 
+(OKE)
 Sekdin Kemenhub (Usia Min 16 Max 23 per 1 September)
 Tinggi badan (Tinggi min Pria 160 cm wanita min 155 cm; Khusus untuk Program Studi D-III PKP/OBU/MBU/MTU, pria minimal 165 cm dan wanita minimal 160 cm)
 

@@ -330,7 +330,7 @@
           </div>
         )
       },
-      
+
       BerapaMinus: props => {
         const setMinus = props.setMinus;
         const selected = props.selected;
@@ -845,13 +845,19 @@
         KEMENHUB: props => {
           const data = [
             ["Sekdin", "Kemenhub"],
-            ["Usia Saat Pembukaan", "Min 16 tahun max 23 tahun"],
+            ["Usia Saat Pembukaan", "Min 16 tahun max 23 per 1 September"],
             ["Buta Warna", "Tidak boleh"],
             ["Minus", "0 D"],
             ["Silinder", "0 D"],
             ["SLTA", "SMA/SMK*"],
             ["Jurusan", "IPA dan jurusan IPS/ SMK sesuai prodi yang dibuka"],
-            ["Tinggi Badan", "Pria 165cm dan wanita minimal 160 cm"],
+            ["Tinggi Badan",
+              <div>
+                <span>Pria 160 cm dan wanita minimal 155 cm.</span>
+                <br />
+                <span>Khusus untuk Program Studi D-III PKP/OBU/MBU/MTU, pria minimal 165 cm dan wanita minimal 160 cm).</span>
+              </div>
+            ],
             ["Gigi", <Pages.Cek.Partials.ListInformasi data={Pages.Cek.FINAL.informasiGigi} numbered={true} />],
             ["Bekas Luka", "Masih ditolerir jika tidak menghambat dan mempengaruhi estetika. Tidak boleh Verises"],
             ["Anamnesa", "Tidak ada anamnesis dan penyakit yang mengharuskan konsumsi obat rutin"],
