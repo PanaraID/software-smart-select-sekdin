@@ -11,9 +11,13 @@ IPDN (aman)
 STAN (Usia Min 14 max 22 per 1 oktober) (OKE)
 Poltekim/kip (Usia Min 17 Max 23 per 15 Mei) (OKE)
 Poltek SSN (Min 17 max 21 per 31 Desember)
+
+(OKE)
 Jurusan Poltek SSN:
 - Teknik Mekatronika diganti Teknik Robotik (Bagian SMK Teknik Elektronika)
 - Teknik Mekatronika dihapus (bagian SMK TI bidang keahlian teknologi informasi dan komunikasi)
+
+(OKE)
 Tinggi Badan Poltek SSN: Pria Min 160 cm Wanita min 150 cm
 Ketentuan Tambahan Poltek SSN:Bersedia menyerahkan sertifikat hasil UTBK-SNBT tahun sebelumnya ATAU tahun ini
 
