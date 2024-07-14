@@ -913,7 +913,7 @@
         STMKG: props => {
           const data = [
             ["Sekdin", "STMKG"],
-            ["Usia Saat Pembukaan", "Min 15, max 23 tahun"],
+            ["Usia Saat Pembukaan", "Min 15, max 23 tahun per 1 September"],
             ["Buta Warna", "Tidak boleh"],
             ["Minus", "4 D*"],
             ["Silinder", "2 D*"],
@@ -941,9 +941,15 @@
         STIN: props => {
           const data = [
             ["Sekdin", "STIN"],
-            ["Usia Saat Pembukaan", "Min 16 Max 21"],
+            ["Usia Saat Pembukaan", "Min 16 Max 21 per 31 Desember"],
             ["Buta Warna", "Tidak boleh"],
-            ["Minus", "1 D"],
+            ["Minus", 
+              <div>
+                <span>1 D</span>
+                <br />
+                <span>Rabun depan (minus) tidak boleh lebih dari 1 D</span>
+              </div>
+            ],
             ["Silinder", "0"],
             ["SLTA", "SMA/SMK/MA (bukan lulusan paket C)"],
             ["Jurusan", "Semua Jurusan"],

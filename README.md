@@ -27,12 +27,14 @@ Tinggi badan (Tinggi min Pria 160 cm wanita min 155 cm; Khusus untuk Program Stu
 
 (OKE)
 STIS (usia Min 16 tahun Max 22 tahun per 1 september)
-Tambahan Rabun dekat (plus) tidak lebih dari 6D
+Tambahan Rabun dekat (plus) tidak lebih dari 6D #TODO
 
+(OKE)
 STMKG (usia benar tinggal tambahin per 1 september)
 
+(OKE)
 STIN (Usia bener tinggal tambahain per 31 desember)
-Plus/mata dekat tidak boleh lebih dari 1D
+Plus/mata dekat tidak boleh lebih dari 1D #TODO
 
 ###List Mata Minus###  #FIXME
 - yang kategori kurang dari 1 D kayak IPDN, Kemenhub itu dihapus dari hasil list karena ketentuannya 0D (mata normal) (OKE)
