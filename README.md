@@ -36,11 +36,11 @@ STMKG (usia benar tinggal tambahin per 1 september)
 STIN (Usia bener tinggal tambahain per 31 desember)
 Plus/mata dekat tidak boleh lebih dari 1D
 
-###List Mata Minus###  #FIXME
+###List Mata Minus### 
 - yang kategori kurang dari 1 D kayak IPDN, Kemenhub itu dihapus dari hasil list karena ketentuannya 0D (mata normal) (OKE)
-- yang kategori 1 -4 sekdin kemenhub hapus dari daftar
-- yang kategori 4 - 6 sekdin kemenhub hapus dari daftar
-- yang kategori lebih dari 6 sekdin kemenhub
+- yang kategori 1 -4 sekdin kemenhub hapus dari daftar (oke)
+- yang kategori 4 - 6 sekdin kemenhub hapus dari daftar (oke)
+- yang kategori lebih dari 6 sekdin kemenhub (oke)
 
 (OKE)
 #IPS (list aman) tapi ada beberapa tambahan:
