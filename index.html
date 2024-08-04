@@ -456,12 +456,15 @@
           // FIXME
           function checkKemenhub() {
             let result = true;
-            // const blindEye = [
-
-            // ];
+            const blindEye = [
+              "Tidak Minus",
+              "Minus < 1",
+              "Minus 1 - 4",
+              "Minus 4 - 6"
+            ];;
 
             result &= "Tidak Buta Warna" === butaWarna ? true : false;
-            // result &= blindEye.includes(minus) ? true : false;
+            result &= blindEye.includes(minus) ? true : false;
 
             return result;
           }
