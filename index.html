@@ -21,7 +21,7 @@
     }
 
     #content {
-      width: fit-content;
+      max-width: 95%;
     }
 
     .btn {
@@ -1196,7 +1196,7 @@
 
       return (
         <React.Fragment>
-          <div className="mt-3 mb-3 p-4 container card" id="content">
+          <div className="mt-4 p-4 container card overflow-auto" id="content">
             {activePage === "home" && <Pages.Home showPage={showPage} />}
             {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} selected={sekolah} />}
             {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}
