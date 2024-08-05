@@ -17,7 +17,10 @@
     }
 
     img {
-      pointer-events: none;
+      margin: auto;
+      width: 400px;
+      height: 400px;
+      display: block;
     }
 
     #content {
@@ -203,7 +206,7 @@
               </div>
               {currentQuestion < questions.length - 1 ? (
                 <div className="mb-3 text-center">
-                  <img src={`images/image${questions[currentQuestion].image}.jpg`} className="img-fluid" alt={`Question ${questions[currentQuestion].image}`} />
+                  <img src={`images/image${questions[currentQuestion].image}.jpg`} alt={`Question ${questions[currentQuestion].image}`} />
                   <label htmlFor="answer" className="form-label">Masukkan huruf atau angka yang terlihat:</label>
                   <input
                     type="text"
