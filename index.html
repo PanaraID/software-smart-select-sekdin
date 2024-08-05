@@ -888,6 +888,18 @@
         },
 
         STIS: props => {
+          const informasiJurusan = [
+            "SMA IPA",
+            "SMA IPS",
+            "SMA JURUSAN LAINNYA",
+            "MA IPA",
+            "MA IPS",
+            "MA JURUSAN LAINNYA",
+            "MA ILMU KEAGAMAAN",
+            "MA BAHASA",
+            "Lulusan SMK/MAk Bidang Leahlian Teknologi Informasi*"
+          ];
+
           const data = [
             ["Sekdin", "STIS"],
             ["Usia Saat Pembukaan", "Min 16 Max 22 tahun per 1 September"],
@@ -901,7 +913,7 @@
             ],
             ["Silinder", "< 6 D"],
             ["SLTA", "SMA/MA atau SMK/MAK"],
-            ["Jurusan", "Bidang Keahlian Teknologi Informasi*"],
+            ["Jurusan", <Pages.Cek.Partials.ListInformasi data={informasiJurusan} numbered={true} />],
             ["Tinggi Badan", "Tidak ada kualifikasi"],
             ["Gigi", "Tidak berlubang, kerapihan point plus tidak menggugurkan (tidak ada persyaratan tertulis terkait gigi)"],
             ["Bekas Luka", Pages.Cek.FINAL.informasiBekasLuka],
@@ -954,11 +966,11 @@
             ["Sekdin", "STIN"],
             ["Usia Saat Pembukaan", "Min 16 Max 21 per 31 Desember"],
             ["Buta Warna", "Tidak boleh"],
-            ["Minus", 
+            ["Minus",
               <div>
                 <span>1 D</span>
                 <br />
-                <span>Rabun depan (minus) tidak boleh lebih dari 1 D</span>
+                <span>Plus/mata dekat tidak boleh lebih dari 1D</span>
               </div>
             ],
             ["Silinder", "0"],
