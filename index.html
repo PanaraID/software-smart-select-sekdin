@@ -457,7 +457,6 @@
             return result;
           }
 
-          // FIXME
           function checkKemenhub() {
             let result = true;
             const blindEye = [
@@ -1086,7 +1085,6 @@
           )
         },
 
-        // FIXME
         STAN: props => {
           return (
             <React.Fragment>
@@ -1200,7 +1198,7 @@
 
       return (
         <React.Fragment>
-          <div className="mt-4 p-4 container card overflow-auto" id="content">
+          <div className="mt-4 mb-4 p-4 container card overflow-auto" id="content">
             {activePage === "home" && <Pages.Home showPage={showPage} />}
             {activePage === "cek-kedinasan-sekolah" && <Pages.CekKedinasanSekolah showPage={showPage} setSekolah={setSekolah} selected={sekolah} />}
             {activePage === "tebak-karakter-buta-warna" && <Pages.TebakKarakterButaWarna showPage={showPage} />}

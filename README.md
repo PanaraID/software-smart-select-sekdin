@@ -10,7 +10,7 @@ IPDN (aman)
 
 STAN (Usia Min 14 max 22 per 1 oktober) (OKE)
 Poltekim/kip (Usia Min 17 Max 23 per 15 Mei) (OKE)
-Poltek SSN (Min 17 max 21 per 31 Desember)
+Poltek SSN (Min 17 max 21 per 31 Desember) (oke)
 
 (OKE)
 Jurusan Poltek SSN:
