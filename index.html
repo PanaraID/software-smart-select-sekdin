@@ -519,9 +519,10 @@
 
         Hasil: (props) => {
           const showPage = props.showPage;
-          const sekolah = props.sekolah || "Pilih";
-          const butaWarna = props.butaWarna || "Pilih";
-          const minus = props.minus || "Pilih";
+
+          const sekolah = props.sekolah;
+          const butaWarna = props.butaWarna;
+          const minus = props.minus;
 
           function ButtonCek(props) {
             return (
@@ -715,6 +716,14 @@
             !butaWarna.includes("Pilih") &&
             !minus.includes("Pilih");
 
+          function InputKosong() {
+            return (
+              <span className="badge text-bg-warning text-wrap">
+                Tidak Diisi
+              </span>
+            );
+          }
+
           return (
             <div>
               <Partials.Header text="CEK REKOMENDASI SEKOLAH KEDINASAN DI BAWAH INI UNTUK MU:" />
@@ -724,13 +733,13 @@
                 </div>
                 <ul className="list-group">
                   <li className="list-group-item">
-                    Sekolah: {sekolah ? sekolah : "kosong"}
+                    Sekolah: {sekolah != "Pilih" ? sekolah : <InputKosong />}
                   </li>
                   <li className="list-group-item">
-                    Buta Warna: {butaWarna ? butaWarna : "Kosong"}
+                    Buta Warna: {butaWarna != "Pilih" ? butaWarna : <InputKosong />}
                   </li>
                   <li className="list-group-item">
-                    Minus: {minus ? minus : "Kosong"}
+                    Minus: {minus != "Pilih" ? minus : <InputKosong />}
                   </li>
                 </ul>
               </div>
