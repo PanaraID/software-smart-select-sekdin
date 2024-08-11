@@ -736,7 +736,8 @@
                     Sekolah: {sekolah != "Pilih" ? sekolah : <InputKosong />}
                   </li>
                   <li className="list-group-item">
-                    Buta Warna: {butaWarna != "Pilih" ? butaWarna : <InputKosong />}
+                    Buta Warna:{" "}
+                    {butaWarna != "Pilih" ? butaWarna : <InputKosong />}
                   </li>
                   <li className="list-group-item">
                     Minus: {minus != "Pilih" ? minus : <InputKosong />}
@@ -1499,9 +1500,7 @@
                   <div className="container card p-2 mb-3 text-center">
                     <div className="row">
                       <div className="col-sm-4">
-                        <button
-                          className="btn btn-danger"
-                        >
+                        <button className="alert alert-warning" role="alert">
                           Peringatan!!!
                         </button>
                       </div>
